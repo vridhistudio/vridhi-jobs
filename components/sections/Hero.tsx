@@ -10,9 +10,9 @@ const stats = [
 ];
 
 const cards = [
-  { title: 'MediCare Clinic', cat: 'Website Design', sub: 'Healthcare · Lucknow, UP', accent: '#10B981' },
-  { title: 'Nakshatra Corp', cat: 'Brand + Registration', sub: 'Legal + Branding · Patna', accent: '#F59E0B' },
-  { title: 'Janbol Campaign', cat: 'Digital PR', sub: 'Election PR · Bihar', accent: '#6366F1' },
+  { title: 'Jeevan Jalsa Foundation', cat: 'NGO Platform', sub: 'Full-stack · Laravel + Tailwind', accent: '#10B981' },
+  { title: 'ExamCraft', cat: 'EdTech SaaS', sub: 'Next.js + Supabase · TypeScript', accent: '#F59E0B' },
+  { title: 'ECCI', cat: 'Corporate Website', sub: 'Next.js + Laravel · Multilingual', accent: '#6366F1' },
 ];
 
 export default function Hero() {
