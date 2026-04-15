@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import Logo from '@/components/Logo';
 
 const links = [
   { label: 'Services', href: '#services' },
@@ -24,12 +25,10 @@ export default function Navbar() {
     <>
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'glass border-b border-[rgba(255,255,255,0.07)]' : 'bg-transparent'}`}>
         <div className="max-w-6xl mx-auto px-6 flex items-center gap-6 py-4">
-          <a href="#" className="flex items-center gap-2.5 mr-auto">
-            <div className="w-8 h-8 rounded-lg bg-[#10B981] flex items-center justify-center">
-              <span className="text-[#080808] font-black text-sm font-serif">V</span>
-            </div>
+          <a href="#" className="flex items-center gap-2 mr-auto">
+            <Logo size={30} />
             <span className="font-display font-bold text-base text-[#f0f0f0] tracking-wide">
-              Vridhi<span className="text-[#10B981]">.</span>
+              Vridhi<span className="text-[#10B981]">Studio</span>
             </span>
           </a>
 

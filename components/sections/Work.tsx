@@ -2,12 +2,54 @@
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 const categories = [
-  { icon: '🏥', title: 'Clinic & Hospital', count: 5, desc: 'OPD, multi-specialty, dental, skin clinics', color: '#10B981', templates: ['CarePoint', 'Swasthya Seva', 'MedCore', 'DermaGlow', 'ApexMed'] },
-  { icon: '🍽️', title: 'Restaurant & Dhaba', count: 6, desc: 'Fine dining, fast food, dhabas, cloud kitchens', color: '#F59E0B', templates: ['SpiceRoute', "Devi's Kitchen", 'Ember & Salt', 'Botanica', 'Avadh', 'Rasayan'] },
-  { icon: '💪', title: 'Gym & Fitness', count: 7, desc: 'Gyms, yoga studios, sports academies', color: '#EC4899', templates: ['StudioZen', 'FormX', 'IronPath', 'PeakZone', 'BurnLab', 'ApexBody', 'FitZone'] },
-  { icon: '📚', title: 'Coaching & Institute', count: 6, desc: 'UPSC, medical, engineering, competitive exams', color: '#6366F1', templates: ['ShikshaPlus', 'ProdigyHub', 'AcademiaX', 'Vidyapeeth', 'GyanPath', 'EduElite'] },
-  { icon: '🤝', title: 'NGO & Trust', count: 6, desc: 'Fundraising, welfare, social organisations', color: '#14B8A6', templates: ['Akanksha', 'Shakti', 'Arogya', 'Dharitri', 'Asha', 'Prayas'] },
-  { icon: '💼', title: 'Business & Corporate', count: 6, desc: 'Consultancies, agencies, trading companies', color: '#8B5CF6', templates: ['Nexus', 'Aashiyana', 'Vertex', 'Ignite', 'Meridian', 'Arcadia'] },
+  {
+    n: '01',
+    title: 'Clinic & Hospital',
+    count: 5,
+    desc: 'OPD, multi-specialty, dental, skin clinics',
+    color: '#10B981',
+    bg: 'rgba(16,185,129,0.05)',
+  },
+  {
+    n: '02',
+    title: 'Restaurant & Food',
+    count: 6,
+    desc: 'Fine dining, fast food, cloud kitchens, cafés',
+    color: '#F59E0B',
+    bg: 'rgba(245,158,11,0.05)',
+  },
+  {
+    n: '03',
+    title: 'Gym & Fitness',
+    count: 7,
+    desc: 'Gyms, yoga studios, sports academies',
+    color: '#EC4899',
+    bg: 'rgba(236,72,153,0.05)',
+  },
+  {
+    n: '04',
+    title: 'Coaching & Education',
+    count: 6,
+    desc: 'Competitive exams, institutes, e-learning',
+    color: '#6366F1',
+    bg: 'rgba(99,102,241,0.05)',
+  },
+  {
+    n: '05',
+    title: 'NGO & Non-Profit',
+    count: 6,
+    desc: 'Fundraising, welfare, social organisations',
+    color: '#14B8A6',
+    bg: 'rgba(20,184,166,0.05)',
+  },
+  {
+    n: '06',
+    title: 'Business & Corporate',
+    count: 6,
+    desc: 'Consultancies, agencies, trading companies',
+    color: '#8B5CF6',
+    bg: 'rgba(139,92,246,0.05)',
+  },
 ];
 
 export default function Work() {
@@ -15,50 +57,72 @@ export default function Work() {
   return (
     <section id="work" ref={ref as React.RefObject<HTMLElement>} className="section-pad px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
           <div data-reveal>
             <span className="section-label">Our work</span>
-            <h2 className="font-serif text-[clamp(2.2rem,5vw,3.5rem)] font-black leading-tight mt-2">
-              Templates built<br /><em className="text-[#10B981]">for the world.</em>
+            <h2 className="font-serif font-black leading-tight mt-3"
+              style={{ fontSize: 'clamp(2.4rem,5.5vw,3.8rem)' }}>
+              Templates built<br /><em className="not-italic" style={{ color: '#10B981' }}>for the world.</em>
             </h2>
           </div>
-          <p data-reveal data-delay="1" className="text-[#888] max-w-xs leading-relaxed">
-            36+ live demos across 6 industries. Ready to launch in 3 days, fully customised.
+          <p data-reveal data-delay="1" className="text-[#666] max-w-xs leading-relaxed text-sm">
+            36+ live demos across 6 industries. Ready to launch in 3 days, fully customised to your brand.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {/* Color block grid — tonal separation, no card borders */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-[rgba(255,255,255,0.05)] rounded-2xl overflow-hidden mb-6">
           {categories.map((c, i) => (
-            <div key={c.title} data-reveal data-delay={String((i % 3) + 1)} className="card p-7 flex flex-col gap-4 cursor-default">
+            <div
+              key={c.title}
+              data-reveal
+              data-delay={String((i % 3) + 1)}
+              className="bg-[#080808] hover:bg-[#0f0f0f] transition-colors duration-300 p-9 flex flex-col gap-5 cursor-default"
+            >
+              {/* Top row: number + count badge */}
               <div className="flex items-center justify-between">
-                <span className="text-3xl">{c.icon}</span>
-                <span className="text-xs font-mono px-2.5 py-1 rounded-full" style={{ color: c.color, background: `${c.color}15`, border: `1px solid ${c.color}25` }}>
+                <span className="font-mono text-xs text-[#333]">{c.n}</span>
+                <span
+                  className="text-[11px] font-semibold px-2.5 py-1 rounded-full"
+                  style={{ color: c.color, background: c.bg }}
+                >
                   {c.count} designs
                 </span>
               </div>
-              <div>
-                <h3 className="font-serif text-lg font-bold">{c.title}</h3>
-                <p className="text-[#555] text-sm mt-1">{c.desc}</p>
+
+              {/* Color accent bar */}
+              <div className="w-8 h-0.5 rounded-full" style={{ background: c.color }} />
+
+              {/* Content */}
+              <div className="flex-1">
+                <h3 className="font-serif text-xl font-bold text-[#f0f0f0] mb-2">{c.title}</h3>
+                <p className="text-[#444] text-sm leading-relaxed">{c.desc}</p>
               </div>
-              <div className="flex flex-wrap gap-1.5 mt-auto">
-                {c.templates.slice(0, 3).map(t => (
-                  <span key={t} className="text-xs font-mono text-[#555] border border-[rgba(255,255,255,0.06)] rounded-full px-2 py-0.5">{t}</span>
-                ))}
-                {c.templates.length > 3 && (
-                  <span className="text-xs font-mono text-[#555] border border-[rgba(255,255,255,0.06)] rounded-full px-2 py-0.5">+{c.templates.length - 3}</span>
-                )}
-              </div>
+
+              {/* Footer */}
+              <span className="text-xs text-[#333] font-mono">Ready to launch →</span>
             </div>
           ))}
         </div>
 
-        <div data-reveal className="mt-10 card p-10 text-center">
-          <h3 className="font-serif text-2xl font-bold mb-2">Like what you see? Let's make it yours.</h3>
-          <p className="text-[#888] text-sm mb-6">Pick any template, tell us your business name, and we'll go live in 3 days. No designer needed.</p>
-          <a href="https://wa.me/917255961822?text=Hi%20Vridhi%20Studio%2C%20I%20want%20to%20start%20a%20website%20project" target="_blank" rel="noopener noreferrer" className="btn-primary">
+        {/* CTA row */}
+        <div data-reveal className="flex flex-col sm:flex-row items-center justify-between gap-6 bg-[#0c0c0c] border border-[rgba(255,255,255,0.06)] rounded-2xl px-10 py-8">
+          <div>
+            <h3 className="font-serif text-xl font-bold mb-1">Like what you see?</h3>
+            <p className="text-[#555] text-sm">Pick a template, tell us your brand — we'll go live in 3 days.</p>
+          </div>
+          <a
+            href="https://wa.me/917255961822?text=Hi%20Vridhi%20Studio%2C%20I%20want%20to%20start%20a%20website%20project"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary flex-shrink-0"
+          >
             Start on WhatsApp →
           </a>
         </div>
+
       </div>
     </section>
   );

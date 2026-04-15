@@ -1,3 +1,5 @@
+import Logo from '@/components/Logo';
+
 const year = new Date().getFullYear();
 
 export default function Footer() {
@@ -6,11 +8,9 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-4 gap-10 mb-12">
           <div className="md:col-span-1 flex flex-col gap-4">
-            <a href="#" className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-[#10B981] flex items-center justify-center">
-                <span className="text-[#080808] font-black text-sm font-serif">V</span>
-              </div>
-              <span className="font-display font-bold text-base text-[#f0f0f0]">Vridhi<span className="text-[#10B981]">.</span></span>
+            <a href="#" className="flex items-center gap-2">
+              <Logo size={28} />
+              <span className="font-display font-bold text-base text-[#f0f0f0]">Vridhi<span className="text-[#10B981]">Studio</span></span>
             </a>
             <p className="text-sm text-[#555] leading-relaxed">
               Full-stack digital agency. Websites, apps, business registrations, ad campaigns, and SaaS products — built for the world's boldest founders.

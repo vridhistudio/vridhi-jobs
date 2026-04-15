@@ -161,8 +161,8 @@ body::after {
 }
 
 /* ── Section padding ────────────────────────────────────────── */
-.section-pad { padding: 100px 0; }
-@media (max-width: 768px) { .section-pad { padding: 64px 0; } }
+.section-pad { padding: 120px 0; }
+@media (max-width: 768px) { .section-pad { padding: 72px 0; } }
 
 /* ── Marquee ────────────────────────────────────────────────── */
 @keyframes marquee-left {
