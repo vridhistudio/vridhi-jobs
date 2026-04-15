@@ -1,63 +1,39 @@
 'use client';
-
 import { useState } from 'react';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 const faqs = [
-  {
-    q: 'Website kitne din mein ready hogi?',
-    a: 'Starter plan mein 3 business days, Growth plan mein 5–7 days, aur Premium/custom projects mein 10–15 days lagte hain. Urgent hai toh batao — express delivery bhi available hai.',
-  },
-  {
-    q: 'Kya mujhe technical knowledge chahiye website chalane ke liye?',
-    a: 'Bilkul nahi. Hum aapko ek simple WhatsApp group dete hain jahan aap content, photos, aur changes request kar sakte ho. Koi coding nahi chahiye. Hum sab handle karte hain.',
-  },
-  {
-    q: 'Business registration mein kitna time lagta hai?',
-    a: 'GST aur MSME registration 3–5 days mein hoti hai. Private Limited company registration 7–10 working days mein complete hoti hai. NGO/Section 8 thoda aur time leta hai — 15–20 days.',
-  },
-  {
-    q: 'Ad campaigns ke liye minimum budget kya hai?',
-    a: 'Our management fee ke alawa, aapka ad spend directly Meta ya Google ko jaata hai. Hum aapko ideal budget suggest karte hain based on your goals, location, and industry.',
-  },
-  {
-    q: 'WhatsApp Extension safe hai? Account ban nahi hoga?',
-    a: "Haan, hum 'safe mode' use karte hain — messages ke beech delay, human-like patterns, aur daily limit settings. 500+ users hain aur abhi tak koi permanent ban nahi.",
-  },
-  {
-    q: 'Payment kab karni hogi?',
-    a: '50% advance jab project start ho, 50% jab website live ho. UPI, bank transfer, sab accepted hai. Koi hidden fees nahi — jo quote mila, wahi final price.',
-  },
+  { q: 'How quickly will my website be ready?', a: 'Starter projects deliver in 3 business days, Growth projects in 5–7 days, and custom/premium builds in 10–15 days. Need it faster? Ask us about express delivery.' },
+  { q: 'Do I need any technical knowledge to manage my site?', a: "Not at all. We give you a simple WhatsApp group where you can send content, photos, and change requests. No coding needed — we handle everything." },
+  { q: 'How long does business registration take?', a: 'GST and MSME registration: 3–5 days. Private Limited company incorporation: 7–10 working days. NGO/Section 8: 15–20 days.' },
+  { q: 'What is the minimum ad spend for campaigns?', a: 'Your ad spend goes directly to Meta or Google — separate from our management fee. We suggest the ideal budget based on your goals, location, and industry.' },
+  { q: 'Is the WhatsApp Extension safe?', a: "Yes. We use safe-mode messaging with human-like delays and daily limits. 500+ users with no permanent bans to date. For maximum safety, we also set up the official WhatsApp Business API." },
+  { q: 'When do I pay?', a: '50% when the project starts, 50% when we go live. UPI and bank transfer accepted. No hidden fees — the quoted price is the final price.' },
 ];
 
 export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
+  const ref = useScrollReveal();
 
   return (
-    <section id="faq" className="section-pad px-6">
+    <section id="faq" ref={ref as React.RefObject<HTMLElement>} className="section-pad px-6 bg-[#0f0f0f]">
       <div className="max-w-3xl mx-auto">
-        <div className="mb-12 text-center">
-          <div className="tag mb-4 mx-auto">FAQs</div>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-[#F8FAFC] leading-tight">
-            Sab kuch clear
-            <br />
-            <span className="text-gradient-emerald">hona chahiye.</span>
+        <div className="mb-12 text-center" data-reveal>
+          <span className="section-label mx-auto">FAQs</span>
+          <h2 className="font-serif text-[clamp(2.2rem,5vw,3.5rem)] font-black leading-tight mt-2">
+            Everything<br /><em className="text-[#10B981]">crystal clear.</em>
           </h2>
         </div>
 
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-2">
           {faqs.map((f, i) => (
-            <div key={i} className="glass rounded-2xl overflow-hidden">
-              <button
-                onClick={() => setOpen(open === i ? null : i)}
-                className="w-full text-left p-6 flex items-center justify-between gap-4 hover:bg-white/3 transition-colors"
-              >
-                <span className="text-sm font-semibold text-[#F8FAFC]">{f.q}</span>
-                <span className="text-[#10B981] text-lg flex-shrink-0 transition-transform duration-200" style={{ transform: open === i ? 'rotate(45deg)' : 'none' }}>+</span>
+            <div key={i} data-reveal data-delay={String((i % 3) + 1)} className="card overflow-hidden">
+              <button onClick={() => setOpen(open === i ? null : i)} className="w-full text-left p-6 flex items-center justify-between gap-4 hover:bg-[rgba(255,255,255,0.02)] transition-colors">
+                <span className="text-sm font-semibold text-[#f0f0f0]">{f.q}</span>
+                <span className="text-[#10B981] text-xl flex-shrink-0 transition-transform duration-300" style={{ transform: open === i ? 'rotate(45deg)' : 'none' }}>+</span>
               </button>
               {open === i && (
-                <div className="px-6 pb-6 text-sm text-[#94A3B8] leading-relaxed border-t border-white/5 pt-4">
-                  {f.a}
-                </div>
+                <div className="px-6 pb-6 text-sm text-[#888] leading-relaxed border-t border-[rgba(255,255,255,0.05)] pt-4">{f.a}</div>
               )}
             </div>
           ))}

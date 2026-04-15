@@ -1,56 +1,36 @@
+'use client';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
+
 const testimonials = [
-  {
-    name: 'Priya Sharma',
-    role: 'Owner, Sharma Restaurant · Patna',
-    quote: 'Website tayar hone ke baad mujhe 3x zyada phone calls aane lage. Pehle koi online nahi dhundhta tha — ab Google pe top pe hain. Vridhi Studio ne jo promise kiya, woh deliver kiya.',
-    translation: 'After the website was ready, I started getting 3x more phone calls. Now we rank on top of Google.',
-    initials: 'PS',
-    color: '#10B981',
-  },
-  {
-    name: 'Rahul Mehta',
-    role: 'Director, MediCare Clinic · Lucknow',
-    quote: 'Company registration aur website dono ek hi jagah se ho gayi. 7 din mein sab kuch ready tha — GST, company certificate, aur website live. Bohot professional team hai.',
-    translation: 'Got both company registration and website from one place. Everything ready in 7 days.',
-    initials: 'RM',
-    color: '#F59E0B',
-  },
-  {
-    name: 'Ankit Gupta',
-    role: 'Founder, BrightPath Coaching · Varanasi',
-    quote: 'Facebook ads se pehle mahine mein 40+ admissions aaye coaching centre mein. Bohot kam investment mein bohot zyada return mila. Ye log result pe focus karte hain, sirf kaam nahi.',
-    translation: '40+ admissions in the first month from Facebook ads. Very high ROI on a small budget.',
-    initials: 'AG',
-    color: '#6366F1',
-  },
+  { name: 'Priya Sharma', role: 'Owner, Sharma Restaurant · Patna', quote: 'After the website went live, I started getting 3x more phone calls. We went from invisible to ranking at the top of Google. Vridhi Studio delivered exactly what they promised.', initials: 'PS', color: '#10B981' },
+  { name: 'Rahul Mehta', role: 'Director, MediCare Clinic · Lucknow', quote: "Got both company registration and website from one place. In 7 days we had our GST certificate, company incorporation, and live website. Incredibly professional team.", initials: 'RM', color: '#F59E0B' },
+  { name: 'Ankit Gupta', role: 'Founder, BrightPath Coaching · Varanasi', quote: 'The Facebook ad campaign brought 40+ admissions in the first month on a small budget. These guys focus on results, not just deliverables. Highest ROI I\'ve seen.', initials: 'AG', color: '#6366F1' },
 ];
 
 export default function Testimonials() {
+  const ref = useScrollReveal();
   return (
-    <section id="testimonials" className="section-pad px-6">
+    <section id="testimonials" ref={ref as React.RefObject<HTMLElement>} className="section-pad px-6 bg-[#0f0f0f]">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-14">
-          <div className="tag mb-4">Client stories</div>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-[#F8FAFC] leading-tight">
-            Real results.
-            <br />
-            <span className="text-gradient-emerald">Real businesses.</span>
+        <div className="mb-14" data-reveal>
+          <span className="section-label">Client stories</span>
+          <h2 className="font-serif text-[clamp(2.2rem,5vw,3.5rem)] font-black leading-tight mt-2">
+            Real results.<br /><em className="text-[#10B981]">Real businesses.</em>
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {testimonials.map((t) => (
-            <div key={t.name} className="glass glass-hover rounded-2xl p-8 flex flex-col gap-4 transition-all duration-300">
-              <div className="flex items-center gap-1 text-[#F59E0B] text-sm">{'★★★★★'}</div>
-              <p className="text-[#94A3B8] text-sm leading-relaxed italic">"{t.quote}"</p>
-              <p className="text-xs text-[#475569] leading-relaxed">({t.translation})</p>
-              <div className="flex items-center gap-3 mt-auto pt-2 border-t border-white/5">
-                <div className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold text-[#050A14]" style={{ background: `linear-gradient(135deg, ${t.color}, ${t.color}99)` }}>
+        <div className="grid md:grid-cols-3 gap-5">
+          {testimonials.map((t, i) => (
+            <div key={t.name} data-reveal data-delay={String(i + 1)} className="card p-8 flex flex-col gap-4">
+              <div className="text-[#F59E0B] text-sm tracking-wider">★★★★★</div>
+              <p className="text-[#888] text-sm leading-relaxed flex-1">"{t.quote}"</p>
+              <div className="flex items-center gap-3 pt-4 border-t border-[rgba(255,255,255,0.06)]">
+                <div className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold text-[#080808]" style={{ background: `linear-gradient(135deg, ${t.color}, ${t.color}99)` }}>
                   {t.initials}
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-[#F8FAFC]">{t.name}</div>
-                  <div className="text-xs text-[#475569]">{t.role}</div>
+                  <div className="text-sm font-semibold text-[#f0f0f0]">{t.name}</div>
+                  <div className="text-xs text-[#555]">{t.role}</div>
                 </div>
               </div>
             </div>
