@@ -1,5 +1,5 @@
 const metrics = [
-  { value: '50+', label: 'Happy clients across Bihar & UP' },
+  { value: '50+', label: 'Happy clients worldwide' },
   { value: '36+', label: 'Live template demos across 6 niches' },
   { value: '3 days', label: 'Average website delivery time' },
   { value: '0', label: 'Hidden charges. Ever.' },
@@ -18,9 +18,9 @@ export default function About() {
               <span className="text-gradient-emerald">websites. We build businesses.</span>
             </h2>
             <p className="text-[#94A3B8] leading-relaxed">
-              Founded by Hari, a developer and digital strategist from Bihar, Vridhi Studio combines
-              technical depth with grassroots business understanding. We speak your language —
-              Hindi, Bhojpuri, English — and we understand what Tier 2 & Tier 3 India actually needs.
+              Founded by Hari, a developer and digital strategist, Vridhi Studio combines
+              technical depth with real-world business understanding. We've worked with founders
+              across India, Southeast Asia, and beyond — from early-stage startups to established businesses.
             </p>
             <p className="text-[#94A3B8] leading-relaxed">
               Legally registered, digitally present, and actively growing — that's the promise we

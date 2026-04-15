@@ -18,8 +18,8 @@ const testimonials = [
   {
     name: 'Ankit Gupta',
     role: 'Founder, BrightPath Coaching · Varanasi',
-    quote: 'Facebook ads se pehle mahine mein 40+ admissions aaye coaching centre mein. Budget tha ₹15,000 — return mila ₹2 lakh ka. Ye log result pe focus karte hain, sirf kaam nahi.',
-    translation: '40+ admissions in the first month from Facebook ads. ₹15K investment returned ₹2 lakhs.',
+    quote: 'Facebook ads se pehle mahine mein 40+ admissions aaye coaching centre mein. Bohot kam investment mein bohot zyada return mila. Ye log result pe focus karte hain, sirf kaam nahi.',
+    translation: '40+ admissions in the first month from Facebook ads. Very high ROI on a small budget.',
     initials: 'AG',
     color: '#6366F1',
   },

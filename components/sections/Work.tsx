@@ -62,7 +62,7 @@ export default function Work() {
           </h2>
           <p className="mt-4 max-w-xl text-[#94A3B8]">
             Every template is ready to launch in 3 days, fully customised with your name, logo, and content.
-            36+ live demos across 6 niches.
+            36+ live demos across 6 industries — built for businesses worldwide.
           </p>
         </div>
 

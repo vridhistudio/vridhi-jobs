@@ -2,8 +2,6 @@ const products = [
   {
     icon: '📲',
     title: 'WhatsApp CRM & Bulk Sender',
-    price: '₹2,999',
-    period: 'one-time',
     desc: 'A browser extension that turns your WhatsApp Business into a full marketing tool. Send 1,000+ messages/day, schedule campaigns, track responses — all without getting banned.',
     features: ['Bulk message sending (safe mode)', 'Contact list import from Excel', 'Auto follow-up sequences', 'Reply tracking dashboard', 'Works with WhatsApp Business'],
     cta: 'Get Extension →',
@@ -13,9 +11,7 @@ const products = [
   {
     icon: '📊',
     title: 'LeadTrack — CRM for Small Business',
-    price: '₹499',
-    period: 'per month',
-    desc: 'A simple, fast CRM built for Indian small businesses. Track your leads, follow-ups, and deals without the complexity of Salesforce or the cost of imported tools.',
+    desc: 'A simple, fast CRM built for small businesses worldwide. Track your leads, follow-ups, and deals without the complexity of Salesforce or the cost of enterprise tools.',
     features: ['Lead pipeline with drag & drop', 'WhatsApp + call log integration', 'Team collaboration (up to 5 users)', 'Automated follow-up reminders', '14-day free trial, no card needed'],
     cta: 'Start Free Trial →',
     color: '#F59E0B',
@@ -32,7 +28,7 @@ export default function Products() {
           <h2 className="text-4xl md:text-5xl font-display font-bold text-[#F8FAFC] leading-tight">
             Tools we built.
             <br />
-            <span className="text-gradient-emerald">Priced for India.</span>
+            <span className="text-gradient-emerald">Built for scale.</span>
           </h2>
         </div>
 
@@ -49,10 +45,6 @@ export default function Products() {
                 </div>
                 <div>
                   <h3 className="text-xl font-display font-bold text-[#F8FAFC]">{p.title}</h3>
-                  <div className="flex items-baseline gap-1 mt-1">
-                    <span className="text-2xl font-display font-bold" style={{ color: p.color }}>{p.price}</span>
-                    <span className="text-xs text-[#475569]">/ {p.period}</span>
-                  </div>
                 </div>
                 <p className="text-[#94A3B8] text-sm leading-relaxed">{p.desc}</p>
                 <ul className="flex flex-col gap-2">

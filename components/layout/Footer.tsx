@@ -14,8 +14,8 @@ export default function Footer() {
               <span className="font-display font-bold text-base text-[#F8FAFC]">Vridhi<span className="text-[#10B981]">.</span></span>
             </a>
             <p className="text-sm text-[#475569] leading-relaxed">
-              India's full-stack digital agency. Websites, apps, business registrations, ad campaigns,
-              and SaaS products — built for Bharat's boldest founders.
+              Full-stack digital agency. Websites, apps, business registrations, ad campaigns,
+              and SaaS products — built for the world's boldest founders.
             </p>
             <div className="flex items-center gap-3">
               {[
@@ -57,7 +57,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-2.5">
               <li><a href="https://wa.me/919693245941" target="_blank" rel="noopener noreferrer" className="text-sm text-[#475569] hover:text-[#10B981] transition-colors">+91 96932 45941</a></li>
               <li><a href="mailto:hello@vridhi.dev" className="text-sm text-[#475569] hover:text-[#10B981] transition-colors">hello@vridhi.dev</a></li>
-              <li><span className="text-sm text-[#475569]">Bihar & UP, India</span></li>
+              <li><span className="text-sm text-[#475569]">India · Remote Worldwide</span></li>
             </ul>
             <a href="https://wa.me/919693245941" target="_blank" rel="noopener noreferrer" className="mt-5 inline-block btn-emerald text-xs px-4 py-2">
               Book Free Call →
@@ -66,8 +66,8 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/5 pt-6 flex flex-col md:flex-row items-center justify-between gap-2">
-          <p className="text-xs text-[#475569]">© {year} Vridhi Studio. Built with ❤️ for Bharat.</p>
-          <p className="text-xs text-[#475569]">Made by Hari · Bihar, India</p>
+          <p className="text-xs text-[#475569]">© {year} Vridhi Studio. Built with ❤️ for founders worldwide.</p>
+          <p className="text-xs text-[#475569]">Made by Hari · India</p>
         </div>
       </div>
     </footer>

@@ -6,7 +6,7 @@ const stats = [
   { value: '50+', label: 'Clients served' },
   { value: '3 days', label: 'Website delivery' },
   { value: '8', label: 'Service verticals' },
-  { value: '₹9K', label: 'Starting price' },
+  { value: '3', label: 'Countries served' },
 ];
 
 const showcaseCards = [
@@ -40,7 +40,7 @@ export default function Hero() {
       <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center gap-6">
         <div className="tag" style={{ animation: 'fadeUp 0.6s ease-out 0.1s forwards', opacity: 0 }}>
           <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
-          India's Full-Stack Digital Agency
+          Full-Stack Digital Agency · Available Worldwide
         </div>
 
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-extrabold leading-[1.05] tracking-tight" style={{ animation: 'fadeUp 0.7s ease-out 0.2s forwards', opacity: 0 }}>
@@ -54,7 +54,7 @@ export default function Hero() {
         <p className="max-w-xl text-lg md:text-xl text-[#94A3B8] leading-relaxed" style={{ animation: 'fadeUp 0.7s ease-out 0.35s forwards', opacity: 0 }}>
           From professional websites to business registrations, ad campaigns to SaaS products —
           Vridhi Studio handles your complete digital journey.
-          <span className="text-[#F59E0B]"> Bihar & UP's most trusted digital partner.</span>
+          <span className="text-[#F59E0B]"> Trusted by founders across India, Southeast Asia & beyond.</span>
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4" style={{ animation: 'fadeUp 0.7s ease-out 0.5s forwards', opacity: 0 }}>

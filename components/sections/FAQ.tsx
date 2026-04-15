@@ -5,7 +5,7 @@ import { useState } from 'react';
 const faqs = [
   {
     q: 'Website kitne din mein ready hogi?',
-    a: 'Starter plan mein 3 business days, Growth plan mein 5–7 days, aur Premium/custom projects mein 10–15 days lagte hain. Urgent hai toh batao — express delivery bhi hoti hai ₹2,000 extra mein.',
+    a: 'Starter plan mein 3 business days, Growth plan mein 5–7 days, aur Premium/custom projects mein 10–15 days lagte hain. Urgent hai toh batao — express delivery bhi available hai.',
   },
   {
     q: 'Kya mujhe technical knowledge chahiye website chalane ke liye?',
@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     q: 'Ad campaigns ke liye minimum budget kya hai?',
-    a: 'Our management fee ke alawa, aapka ad spend directly Meta ya Google ko jaata hai. Minimum effective ad spend hai ₹5,000/month for local businesses. Hum aapko ideal budget suggest karte hain based on your goals.',
+    a: 'Our management fee ke alawa, aapka ad spend directly Meta ya Google ko jaata hai. Hum aapko ideal budget suggest karte hain based on your goals, location, and industry.',
   },
   {
     q: 'WhatsApp Extension safe hai? Account ban nahi hoga?',

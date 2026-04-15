@@ -54,7 +54,7 @@ export default function Services() {
           </h2>
           <p className="mt-4 max-w-xl text-[#94A3B8]">
             We are not a typical web agency. We handle your complete digital infrastructure —
-            from building your business legally to growing it online.
+            from building your business online to growing it globally.
           </p>
         </div>
 

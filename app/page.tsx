@@ -8,7 +8,6 @@ import Products from '@/components/sections/Products';
 import Process from '@/components/sections/Process';
 import Testimonials from '@/components/sections/Testimonials';
 import About from '@/components/sections/About';
-import Pricing from '@/components/sections/Pricing';
 import FAQ from '@/components/sections/FAQ';
 import CTA from '@/components/sections/CTA';
 
@@ -24,7 +23,6 @@ export default function Home() {
       <Process />
       <Testimonials />
       <About />
-      <Pricing />
       <FAQ />
       <CTA />
       <Footer />
