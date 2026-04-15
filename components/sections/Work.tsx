@@ -94,7 +94,7 @@ export default function Work() {
         <div className="mt-10 text-center glass rounded-2xl p-8">
           <h3 className="text-xl font-display font-bold text-[#F8FAFC]">Like what you see? Let's make it yours.</h3>
           <p className="text-[#94A3B8] text-sm mt-2 mb-6">Pick any template, tell us your business name, and we'll go live in 3 days. No designer needed.</p>
-          <a href="https://wa.me/919693245941?text=Hi%20Vridhi%20Studio%2C%20I%20want%20to%20start%20a%20website%20project" target="_blank" rel="noopener noreferrer" className="btn-emerald text-sm">
+          <a href="https://wa.me/917255961822?text=Hi%20Vridhi%20Studio%2C%20I%20want%20to%20start%20a%20website%20project" target="_blank" rel="noopener noreferrer" className="btn-emerald text-sm">
             Start on WhatsApp →
           </a>
         </div>

@@ -58,7 +58,7 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4" style={{ animation: 'fadeUp 0.7s ease-out 0.5s forwards', opacity: 0 }}>
-          <a href="https://wa.me/919693245941" target="_blank" rel="noopener noreferrer" className="btn-emerald text-base">
+          <a href="https://wa.me/917255961822" target="_blank" rel="noopener noreferrer" className="btn-emerald text-base">
             📲 Start a Project →
           </a>
           <a href="#work" className="btn-outline text-base">View Our Work</a>

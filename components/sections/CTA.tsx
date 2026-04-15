@@ -16,7 +16,7 @@ export default function CTA() {
               15-minute free call. No obligation. We'll tell you exactly what you need — and what you don't.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <a href="https://wa.me/919693245941?text=Hi%20Vridhi%20Studio%2C%20I%20want%20a%20free%20consultation" target="_blank" rel="noopener noreferrer" className="btn-emerald text-base">
+              <a href="https://wa.me/917255961822?text=Hi%20Vridhi%20Studio%2C%20I%20want%20a%20free%20consultation" target="_blank" rel="noopener noreferrer" className="btn-emerald text-base">
                 📲 WhatsApp Us Now
               </a>
               <a href="mailto:hello@vridhi.dev" className="btn-outline text-base">

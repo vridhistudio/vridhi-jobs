@@ -43,7 +43,7 @@ export default function Navbar() {
           </div>
 
           <div className="hidden md:block ml-auto">
-            <a href="https://wa.me/919693245941" target="_blank" rel="noopener noreferrer" className="btn-emerald text-sm px-5 py-2">
+            <a href="https://wa.me/917255961822" target="_blank" rel="noopener noreferrer" className="btn-emerald text-sm px-5 py-2">
               Book a Call →
             </a>
           </div>
@@ -63,7 +63,7 @@ export default function Navbar() {
                 {l.label}
               </a>
             ))}
-            <a href="https://wa.me/919693245941" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="btn-emerald text-sm text-center mt-2">
+            <a href="https://wa.me/917255961822" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="btn-emerald text-sm text-center mt-2">
               Book a Call →
             </a>
           </div>

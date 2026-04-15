@@ -27,7 +27,7 @@ export default function About() {
               make to every business we work with.
             </p>
             <div className="flex flex-wrap gap-3">
-              <a href="https://wa.me/919693245941" target="_blank" rel="noopener noreferrer" className="btn-emerald text-sm">
+              <a href="https://wa.me/917255961822" target="_blank" rel="noopener noreferrer" className="btn-emerald text-sm">
                 Talk to us →
               </a>
               <a href="mailto:hello@vridhi.dev" className="btn-outline text-sm">

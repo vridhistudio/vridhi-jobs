@@ -55,7 +55,7 @@ export default function Products() {
                     </li>
                   ))}
                 </ul>
-                <a href="https://wa.me/919693245941" target="_blank" rel="noopener noreferrer" className="mt-auto pt-2 text-sm font-bold transition-opacity hover:opacity-70" style={{ color: p.color }}>
+                <a href="https://wa.me/917255961822" target="_blank" rel="noopener noreferrer" className="mt-auto pt-2 text-sm font-bold transition-opacity hover:opacity-70" style={{ color: p.color }}>
                   {p.cta}
                 </a>
               </div>

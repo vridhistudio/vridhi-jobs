@@ -22,7 +22,7 @@ export default function Footer() {
                 { label: 'In', href: 'https://instagram.com/vridhistudio' },
                 { label: 'Li', href: 'https://linkedin.com/company/vridhi-studio' },
                 { label: 'Yt', href: 'https://youtube.com/@vridhistudio' },
-                { label: 'Wa', href: 'https://wa.me/919693245941' },
+                { label: 'Wa', href: 'https://wa.me/917255961822' },
               ].map((s) => (
                 <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="w-8 h-8 glass rounded-full flex items-center justify-center text-xs font-bold text-[#94A3B8] hover:text-[#10B981] hover:border-[#10B981]/30 transition-colors">
                   {s.label}
@@ -55,11 +55,11 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-bold text-[#F8FAFC] mb-4">Contact</h4>
             <ul className="flex flex-col gap-2.5">
-              <li><a href="https://wa.me/919693245941" target="_blank" rel="noopener noreferrer" className="text-sm text-[#475569] hover:text-[#10B981] transition-colors">+91 96932 45941</a></li>
+              <li><a href="https://wa.me/917255961822" target="_blank" rel="noopener noreferrer" className="text-sm text-[#475569] hover:text-[#10B981] transition-colors">+91 72559 61822</a></li>
               <li><a href="mailto:hello@vridhi.dev" className="text-sm text-[#475569] hover:text-[#10B981] transition-colors">hello@vridhi.dev</a></li>
               <li><span className="text-sm text-[#475569]">India · Remote Worldwide</span></li>
             </ul>
-            <a href="https://wa.me/919693245941" target="_blank" rel="noopener noreferrer" className="mt-5 inline-block btn-emerald text-xs px-4 py-2">
+            <a href="https://wa.me/917255961822" target="_blank" rel="noopener noreferrer" className="mt-5 inline-block btn-emerald text-xs px-4 py-2">
               Book Free Call →
             </a>
           </div>

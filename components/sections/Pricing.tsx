@@ -167,7 +167,7 @@ export default function Pricing() {
                     </li>
                   ))}
                 </ul>
-                <a href="https://wa.me/919693245941" target="_blank" rel="noopener noreferrer" className="mt-4 w-full text-center py-2.5 rounded-full text-sm font-bold transition-all border" style={{ color: p.color, borderColor: `${p.color}40` }}>
+                <a href="https://wa.me/917255961822" target="_blank" rel="noopener noreferrer" className="mt-4 w-full text-center py-2.5 rounded-full text-sm font-bold transition-all border" style={{ color: p.color, borderColor: `${p.color}40` }}>
                   Get started →
                 </a>
               </div>
@@ -177,7 +177,7 @@ export default function Pricing() {
 
         <p className="mt-6 text-center text-sm text-[#475569]">
           Need something custom?{' '}
-          <a href="https://wa.me/919693245941" target="_blank" rel="noopener noreferrer" className="text-[#10B981] hover:underline">
+          <a href="https://wa.me/917255961822" target="_blank" rel="noopener noreferrer" className="text-[#10B981] hover:underline">
             WhatsApp us — we'll give you a quote in 2 hours.
           </a>
         </p>
