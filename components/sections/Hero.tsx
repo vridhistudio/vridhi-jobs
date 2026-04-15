@@ -101,7 +101,7 @@ export default function Hero() {
             >
               Websites, apps, business registration, ad campaigns, SaaS —
               your complete digital journey, handled.{' '}
-              <span style={{ color: '#F59E0B' }}>Trusted by founders across India, Southeast Asia & beyond.</span>
+              <span style={{ color: '#F59E0B' }}>Trusted by founders from Singapore to Dubai to Mumbai.</span>
             </motion.p>
 
             {/* CTAs */}
