@@ -67,7 +67,7 @@ export default function Footer() {
 
         <div className="border-t border-white/5 pt-6 flex flex-col md:flex-row items-center justify-between gap-2">
           <p className="text-xs text-[#475569]">© {year} Vridhi Studio. Built with ❤️ for founders worldwide.</p>
-          <p className="text-xs text-[#475569]">Made by Hari · India</p>
+          <p className="text-xs text-[#475569]">Vridhi Studio · India</p>
         </div>
       </div>
     </footer>

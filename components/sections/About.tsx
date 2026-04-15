@@ -18,7 +18,7 @@ export default function About() {
               <span className="text-gradient-emerald">websites. We build businesses.</span>
             </h2>
             <p className="text-[#94A3B8] leading-relaxed">
-              Founded by Hari, a developer and digital strategist, Vridhi Studio combines
+              Vridhi Studio was built by a team of developers and digital strategists who combine
               technical depth with real-world business understanding. We've worked with founders
               across India, Southeast Asia, and beyond — from early-stage startups to established businesses.
             </p>
