@@ -25,28 +25,28 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'Vridhi Studio — We Build. We Register. We Grow.',
+  title: 'Postly — LinkedIn AI Post Writer',
   description:
-    'Full-stack digital agency. Websites, apps, business registration, ad campaigns & SaaS products — built for ambitious founders worldwide.',
-  keywords: ['web development', 'mobile apps', 'AI automation', 'SaaS', 'digital agency', 'Vridhi Studio'],
+    'Write viral LinkedIn posts in seconds with AI. Built-in hook templates, tone presets, and a scheduler — right inside your browser. Free Chrome extension.',
+  keywords: ['linkedin post writer', 'ai linkedin', 'linkedin growth', 'chrome extension', 'Postly'],
   authors: [{ name: 'Vridhi Studio', url: 'https://vridhi.dev' }],
   openGraph: {
-    title: 'Vridhi Studio — We Build. We Register. We Grow.',
-    description: 'Full-stack digital agency. Web, mobile, AI & SaaS.',
-    url: 'https://vridhi.dev',
-    siteName: 'Vridhi Studio',
+    title: 'Postly — LinkedIn AI Post Writer',
+    description: 'Write viral LinkedIn posts in seconds with AI. Free Chrome extension.',
+    url: 'https://postly.vridhi.dev',
+    siteName: 'Postly',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vridhi Studio',
-    description: 'We build digital products that grow.',
+    title: 'Postly — LinkedIn AI Post Writer',
+    description: 'Write viral LinkedIn posts in seconds. Free Chrome extension by Vridhi Studio.',
   },
   robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
-  themeColor: '#10B981',
+  themeColor: '#6366F1',
   width: 'device-width',
   initialScale: 1,
 };
