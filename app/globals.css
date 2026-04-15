@@ -170,6 +170,12 @@ body::after {
   to   { transform: translateX(-50%); }
 }
 
+/* ── Pulse (hero badge dot) ─────────────────────────────────── */
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 6px #10B981; }
+  50%       { opacity: 0.5; box-shadow: 0 0 12px #10B981, 0 0 24px rgba(16,185,129,0.3); }
+}
+
 /* ── Aurora (hero bg) ───────────────────────────────────────── */
 @keyframes aurora {
   0%,100% { transform: translate(0,0) scale(1); opacity: .3; }
@@ -183,3 +189,7 @@ body::after {
 ::-webkit-scrollbar-thumb { background: rgba(16,185,129,0.3); border-radius: 2px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(16,185,129,0.5); }
 ::selection { background: rgba(16,185,129,0.2); color: #34D399; }
+
+/* ── Hide scrollbar (filter bar) ───────────────────────────── */
+.scrollbar-hide { scrollbar-width: none; -ms-overflow-style: none; }
+.scrollbar-hide::-webkit-scrollbar { display: none; }

@@ -1,59 +1,72 @@
 'use client';
-import { useScrollReveal } from '@/hooks/useScrollReveal';
+import Reveal from '@/components/Reveal';
 
 const products = [
   {
-    icon: '📲', title: 'WhatsApp CRM & Bulk Sender', badge: 'Popular',
-    desc: 'A browser extension that turns your WhatsApp Business into a full marketing tool. Send 1,000+ messages/day, schedule campaigns, track responses — all without getting banned.',
+    label: 'WA',
+    title: 'WhatsApp CRM & Bulk Sender',
+    badge: 'Popular',
+    desc: 'A browser extension that turns your WhatsApp Business into a full marketing tool. Send 1,000+ messages/day, schedule campaigns, track responses — without getting banned.',
     features: ['Bulk message sending (safe mode)', 'Contact list import from Excel', 'Auto follow-up sequences', 'Reply tracking dashboard', 'Works with WhatsApp Business'],
-    cta: 'Get Extension →', color: '#10B981',
+    cta: 'Get Extension →',
+    color: '#10B981',
   },
   {
-    icon: '📊', title: 'LeadTrack — CRM for Small Business', badge: 'New',
+    label: 'LT',
+    title: 'LeadTrack — CRM for Small Business',
+    badge: 'New',
     desc: 'A simple, fast CRM built for small businesses worldwide. Track your leads, follow-ups, and deals without enterprise-level complexity.',
     features: ['Lead pipeline with drag & drop', 'WhatsApp + call log integration', 'Team collaboration (up to 5 users)', 'Automated follow-up reminders', '14-day free trial, no card needed'],
-    cta: 'Start Free Trial →', color: '#F59E0B',
+    cta: 'Start Free Trial →',
+    color: '#F59E0B',
   },
 ];
 
 export default function Products() {
-  const ref = useScrollReveal();
   return (
-    <section id="products" ref={ref as React.RefObject<HTMLElement>} className="section-pad px-6">
+    <section id="products" className="section-pad px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-14" data-reveal>
+
+        <Reveal className="mb-14">
           <span className="section-label">Our products</span>
-          <h2 className="font-serif text-[clamp(2.2rem,5vw,3.5rem)] font-black leading-tight mt-2">
-            Tools we built.<br /><em className="text-[#10B981]">Built for scale.</em>
+          <h2 className="font-serif font-black leading-tight mt-3"
+            style={{ fontSize: 'clamp(2.4rem,5.5vw,3.8rem)' }}>
+            Tools we built.<br /><em className="not-italic" style={{ color: '#10B981' }}>Built for scale.</em>
           </h2>
-        </div>
+        </Reveal>
 
         <div className="grid md:grid-cols-2 gap-5">
-          {products.map((p) => (
-            <div key={p.title} data-reveal className="card overflow-hidden flex flex-col">
-              <div className="h-0.5" style={{ background: `linear-gradient(90deg, ${p.color}, transparent)` }} />
-              <div className="p-9 flex flex-col gap-5 flex-1">
-                <div className="flex items-start justify-between">
-                  <span className="text-3xl">{p.icon}</span>
-                  <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ color: p.color, background: `${p.color}15`, border: `1px solid ${p.color}25` }}>{p.badge}</span>
+          {products.map((p, i) => (
+            <Reveal key={p.title} delay={i * 0.1}>
+              <div className="card overflow-hidden flex flex-col h-full">
+                <div className="h-0.5" style={{ background: `linear-gradient(90deg, ${p.color}, transparent)` }} />
+                <div className="p-9 flex flex-col gap-5 flex-1">
+                  <div className="flex items-start justify-between">
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold text-[#080808]" style={{ background: p.color }}>
+                      {p.label}
+                    </div>
+                    <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ color: p.color, background: `${p.color}15`, border: `1px solid ${p.color}25` }}>{p.badge}</span>
+                  </div>
+                  <h3 className="font-serif text-xl font-bold">{p.title}</h3>
+                  <p className="text-[#777] text-sm leading-relaxed">{p.desc}</p>
+                  <ul className="flex flex-col gap-2.5">
+                    {p.features.map(f => (
+                      <li key={f} className="flex items-center gap-2 text-sm text-[#777]">
+                        <span className="text-xs flex-shrink-0" style={{ color: p.color }}>✓</span>
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <a href="https://wa.me/917255961822" target="_blank" rel="noopener noreferrer"
+                    className="mt-auto text-sm font-bold flex items-center gap-1.5 transition-all hover:gap-3" style={{ color: p.color }}>
+                    {p.cta}
+                  </a>
                 </div>
-                <h3 className="font-serif text-xl font-bold">{p.title}</h3>
-                <p className="text-[#888] text-sm leading-relaxed">{p.desc}</p>
-                <ul className="flex flex-col gap-2.5">
-                  {p.features.map(f => (
-                    <li key={f} className="flex items-center gap-2 text-sm text-[#888]">
-                      <span className="text-xs flex-shrink-0" style={{ color: p.color }}>✓</span>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <a href="https://wa.me/917255961822" target="_blank" rel="noopener noreferrer" className="mt-auto text-sm font-bold flex items-center gap-1.5 transition-all hover:gap-3" style={{ color: p.color }}>
-                  {p.cta}
-                </a>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
+
       </div>
     </section>
   );

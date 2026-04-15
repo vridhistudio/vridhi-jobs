@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter, Syne, Playfair_Display } from 'next/font/google';
 import './globals.css';
+import SmoothScroll from './providers/SmoothScroll';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -52,8 +53,10 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${syne.variable} ${playfair.variable} scroll-smooth`}>
-      <body className="antialiased">{children}</body>
+    <html lang="en" className={`${inter.variable} ${syne.variable} ${playfair.variable}`}>
+      <body className="antialiased">
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
     </html>
   );
 }
