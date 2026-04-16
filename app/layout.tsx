@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, Syne, Playfair_Display } from 'next/font/google';
+import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
-import SmoothScroll from './providers/SmoothScroll';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -9,54 +8,44 @@ const inter = Inter({
   display: 'swap',
 });
 
-const syne = Syne({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  variable: '--font-syne',
+  variable: '--font-jakarta',
   weight: ['400', '500', '600', '700', '800'],
   display: 'swap',
 });
 
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  variable: '--font-playfair',
-  weight: ['400', '700', '900'],
-  style: ['normal', 'italic'],
-  display: 'swap',
-});
-
 export const metadata: Metadata = {
-  title: 'Postly — LinkedIn AI Post Writer',
+  title: 'Vridhi Jobs — Find Jobs in Lucknow, Kanpur & UP',
   description:
-    'Write viral LinkedIn posts in seconds with AI. Built-in hook templates, tone presets, and a scheduler — right inside your browser. Free Chrome extension.',
-  keywords: ['linkedin post writer', 'ai linkedin', 'linkedin growth', 'chrome extension', 'Postly'],
+    'Find office, WFH, part-time and fresher jobs in Lucknow, Kanpur, Noida and across Uttar Pradesh. Placement services by Anita Srivastava. Free for job seekers.',
+  keywords: ['jobs in lucknow', 'jobs in kanpur', 'placement services lucknow', 'work from home jobs UP', 'fresher jobs lucknow', 'Vridhi Jobs'],
   authors: [{ name: 'Vridhi Studio', url: 'https://vridhi.dev' }],
   openGraph: {
-    title: 'Postly — LinkedIn AI Post Writer',
-    description: 'Write viral LinkedIn posts in seconds with AI. Free Chrome extension.',
-    url: 'https://postly.vridhi.dev',
-    siteName: 'Postly',
+    title: 'Vridhi Jobs — Placement Services in Lucknow & UP',
+    description: 'Free placement service for job seekers in Lucknow, Kanpur, Noida and UP. Office, WFH & fresher roles.',
+    url: 'https://jobs.vridhi.dev',
+    siteName: 'Vridhi Jobs',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Postly — LinkedIn AI Post Writer',
-    description: 'Write viral LinkedIn posts in seconds. Free Chrome extension by Vridhi Studio.',
+    title: 'Vridhi Jobs — Find Jobs in UP',
+    description: 'Free placement service. Lucknow, Kanpur, Noida & UP. Apply via WhatsApp.',
   },
   robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
-  themeColor: '#6366F1',
+  themeColor: '#10B981',
   width: 'device-width',
   initialScale: 1,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${syne.variable} ${playfair.variable}`}>
-      <body className="antialiased">
-        <SmoothScroll>{children}</SmoothScroll>
-      </body>
+    <html lang="en" className={`${inter.variable} ${jakarta.variable}`}>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
