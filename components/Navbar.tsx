@@ -1,100 +1,99 @@
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
+const navLinks = [
+  { href: '/jobs',    label: 'Browse Jobs'  },
+  { href: '/hire',    label: 'Post a Job'   },
+  { href: '/about',   label: 'About'        },
+  { href: '/contact', label: 'Contact'      },
+];
 
 export default function Navbar() {
   const path = usePathname();
+  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
-  const links = [
-    { href: '/jobs', label: 'Find Jobs' },
-    { href: '/hire', label: 'Post a Job' },
-    { href: '/about', label: 'About' },
-    { href: '/contact', label: 'Contact' },
-  ];
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 16);
+    window.addEventListener('scroll', handler, { passive: true });
+    return () => window.removeEventListener('scroll', handler);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-[#E5E7EB] shadow-sm">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <header className={`sticky top-0 z-50 bg-white transition-all duration-300 ${scrolled ? 'shadow-nav' : ''}`}>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-[72px] flex items-center justify-between gap-6">
+
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-[#10B981] flex items-center justify-center">
-            <span className="text-white font-bold text-sm font-display">V</span>
+        <Link href="/" className="flex items-center gap-2.5 shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-brand flex items-center justify-center shadow-btn">
+            <span className="text-white font-display font-extrabold text-base">V</span>
           </div>
-          <span className="font-display font-bold text-[#111827] text-lg leading-none">
-            Vridhi <span className="text-[#10B981]">Jobs</span>
+          <span className="font-display font-extrabold text-[#111827] text-xl leading-none tracking-tight">
+            Vridhi <span className="text-brand">Jobs</span>
           </span>
         </Link>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-1">
-          {links.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+          {navLinks.map(({ href, label }) => (
+            <Link key={href} href={href}
+              className={`px-4 py-2 rounded-full text-[14px] font-medium transition-all duration-150 ${
                 path === href
-                  ? 'text-[#10B981] bg-[#ECFDF5]'
-                  : 'text-[#6B7280] hover:text-[#111827] hover:bg-[#F3F4F6]'
-              }`}
-            >
+                  ? 'bg-brand-tint text-brand font-semibold'
+                  : 'text-ink-3 hover:text-ink hover:bg-surface-3'
+              }`}>
               {label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-3">
-          <Link
-            href="/apply"
-            className="px-4 py-2 text-sm font-semibold text-[#10B981] border border-[#10B981] rounded-lg hover:bg-[#ECFDF5] transition-colors"
-          >
-            I&rsquo;m Looking for Work
+        {/* Desktop CTAs */}
+        <div className="hidden md:flex items-center gap-2 shrink-0">
+          <Link href="/apply"
+            className="px-5 py-2.5 text-[14px] font-semibold text-brand border-2 border-brand/30 rounded-full hover:border-brand hover:bg-brand-tint transition-all duration-200">
+            I&rsquo;m Hiring
           </Link>
-          <Link
-            href="/hire"
-            className="px-4 py-2 text-sm font-semibold text-white bg-[#10B981] rounded-lg hover:bg-[#059669] transition-colors"
-          >
-            Hire Candidates
+          <Link href="/hire"
+            className="px-5 py-2.5 text-[14px] font-semibold text-white bg-brand rounded-full shadow-btn hover:bg-brand-dark hover:shadow-glow transition-all duration-200">
+            Find Talent
           </Link>
         </div>
 
         {/* Mobile hamburger */}
-        <button
-          className="md:hidden p-2 text-[#6B7280]"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            {open ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
+        <button onClick={() => setOpen(!open)}
+          className="md:hidden p-2 rounded-xl text-ink-3 hover:bg-surface-3 transition-colors"
+          aria-label="Menu">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {open
+              ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />}
           </svg>
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile drawer */}
       {open && (
-        <div className="md:hidden bg-white border-t border-[#E5E7EB] px-4 py-4 flex flex-col gap-2">
-          {links.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              onClick={() => setOpen(false)}
-              className="px-4 py-3 rounded-lg text-sm font-medium text-[#374151] hover:bg-[#F3F4F6]"
-            >
+        <div className="md:hidden bg-white border-t border-surface-3 px-4 py-4 space-y-1">
+          {navLinks.map(({ href, label }) => (
+            <Link key={href} href={href} onClick={() => setOpen(false)}
+              className={`block px-4 py-3 rounded-xl text-[15px] font-medium transition-colors ${
+                path === href ? 'bg-brand-tint text-brand font-semibold' : 'text-ink-2 hover:bg-surface-3'
+              }`}>
               {label}
             </Link>
           ))}
-          <Link
-            href="/apply"
-            onClick={() => setOpen(false)}
-            className="mt-2 px-4 py-3 text-sm font-semibold text-center text-white bg-[#10B981] rounded-lg"
-          >
-            I&rsquo;m Looking for Work
-          </Link>
+          <div className="flex gap-2 pt-3">
+            <Link href="/apply" onClick={() => setOpen(false)}
+              className="flex-1 text-center py-3 text-[14px] font-semibold text-brand border-2 border-brand/30 rounded-full">
+              Find Work
+            </Link>
+            <Link href="/hire" onClick={() => setOpen(false)}
+              className="flex-1 text-center py-3 text-[14px] font-semibold text-white bg-brand rounded-full">
+              Post Job
+            </Link>
+          </div>
         </div>
       )}
     </header>

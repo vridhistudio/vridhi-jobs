@@ -3,17 +3,73 @@
 @tailwind utilities;
 
 @layer base {
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
   html { scroll-behavior: smooth; }
+
   body {
-    background-color: #F8FAFC;
+    background-color: #F9FAFB;
     color: #111827;
     font-family: var(--font-inter), 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
   }
+
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-jakarta), 'Plus Jakarta Sans', sans-serif;
   }
-  ::selection { background: rgba(16,185,129,0.15); color: #059669; }
+
+  ::selection {
+    background: rgba(16,185,129,0.18);
+    color: #059669;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+
+  /* Input base — pill shape, no border, surface bg */
+  .input-base {
+    @apply w-full rounded-full bg-surface-3 border-0 px-5 py-3 text-[15px] text-ink placeholder-ink-4
+           focus:outline-none focus:ring-2 focus:ring-brand/20 focus:bg-white transition-all duration-200;
+  }
+
+  /* Textarea/select base — rounded-2xl variant */
+  .input-area {
+    @apply w-full rounded-2xl bg-surface-3 border-0 px-4 py-3 text-[15px] text-ink placeholder-ink-4
+           focus:outline-none focus:ring-2 focus:ring-brand/20 focus:bg-white transition-all duration-200;
+  }
+
+  /* Card — white, rounded-2xl, shadow */
+  .card {
+    @apply bg-white rounded-2xl shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-200;
+  }
+
+  /* Primary button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand text-white font-semibold
+           px-6 py-3 text-[15px] hover:bg-brand-dark hover:shadow-glow transition-all duration-200;
+  }
+
+  /* Outline button */
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-brand text-brand font-semibold
+           px-6 py-3 text-[15px] hover:bg-brand-tint transition-all duration-200;
+  }
+
+  /* Ghost button */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/20 text-white font-semibold
+           px-6 py-3 text-[15px] hover:bg-white/10 transition-all duration-200;
+  }
+
+  /* Section label */
+  .section-label {
+    @apply inline-block text-[11px] font-bold uppercase tracking-[0.1em] text-brand;
+  }
 }
