@@ -6,29 +6,58 @@ export default function ApplyPage() {
     <>
       <Navbar />
 
-      {/* Page header */}
-      <section className="bg-white py-14">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="inline-flex items-center gap-2 bg-[#ECFDF5] text-[#059669] rounded-full px-4 py-1.5 text-xs font-bold mb-4">
-            ✅ Always free for job seekers
+      {/* Dark page header */}
+      <section
+        className="bg-[#0A0F1E] py-16 relative overflow-hidden"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(16,185,129,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(16,185,129,0.03) 1px,transparent 1px)',
+          backgroundSize: '40px 40px',
+        }}
+      >
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+          <div className="inline-flex items-center gap-2 bg-[#10B981]/10 border border-[#10B981]/20 text-[#10B981] rounded-full px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.15em] mb-5">
+            Always Free
           </div>
-          <h1 className="font-display font-extrabold text-4xl md:text-5xl tracking-tight text-[#111827]">
+          <h1
+            className="font-display font-black text-white tracking-[-0.04em] leading-[1.05]"
+            style={{ fontSize: 'clamp(40px,5vw,64px)' }}
+          >
             Apply for a Job
           </h1>
-          <p className="text-[#6B7280] mt-3 max-w-lg leading-relaxed">
+          <p className="text-white/40 mt-4 max-w-md leading-relaxed text-[15px]">
             Tell us about yourself — Anita personally reviews every application and calls within 48 hours.
           </p>
+          <div className="inline-flex flex-wrap gap-2 mt-5">
+            {[
+              '✅ Free for candidates',
+              '⚡ 48h response',
+              '💬 WhatsApp support',
+            ].map((pill) => (
+              <span
+                key={pill}
+                className="bg-white/[0.08] border border-white/[0.10] rounded-full px-3 py-1 text-xs text-white/50 font-medium"
+              >
+                {pill}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Main content */}
-      <section className="bg-[#F9FAFB] py-20">
+      <section className="bg-[#F9FAFB] py-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-4 sm:px-6">
 
           {/* Form card */}
           <div className="lg:col-span-2">
             <div className="bg-white rounded-3xl p-8 md:p-10 shadow-[0_32px_64px_rgba(0,0,0,0.07)]">
-              <h2 className="font-display font-bold text-2xl text-[#111827] mb-8">Your Details</h2>
+              <h2
+                className="font-display font-black text-[#111827] mb-8"
+                style={{ fontSize: 'clamp(22px,3vw,28px)' }}
+              >
+                Your Details
+              </h2>
 
               <div className="space-y-5">
 
@@ -77,7 +106,7 @@ export default function ApplyPage() {
                     <label className="block text-sm font-semibold text-[#374151] mb-1.5">
                       Highest Qualification <span className="text-red-400">*</span>
                     </label>
-                    <select className="w-full rounded-2xl bg-[#F3F4F6] border-0 px-5 py-3 text-[15px] text-[#374151] placeholder-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#10B981]/20 focus:bg-white transition-all duration-200">
+                    <select className="w-full rounded-2xl bg-[#F3F4F6] border-0 px-5 py-3 text-[15px] text-[#374151] focus:outline-none focus:ring-2 focus:ring-[#10B981]/20 focus:bg-white transition-all duration-200">
                       <option value="">Select qualification</option>
                       <option>10th Pass</option>
                       <option>12th Pass</option>
@@ -89,7 +118,7 @@ export default function ApplyPage() {
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-[#374151] mb-1.5">Work Experience</label>
-                    <select className="w-full rounded-2xl bg-[#F3F4F6] border-0 px-5 py-3 text-[15px] text-[#374151] placeholder-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#10B981]/20 focus:bg-white transition-all duration-200">
+                    <select className="w-full rounded-2xl bg-[#F3F4F6] border-0 px-5 py-3 text-[15px] text-[#374151] focus:outline-none focus:ring-2 focus:ring-[#10B981]/20 focus:bg-white transition-all duration-200">
                       <option>Fresher (No experience)</option>
                       <option>Less than 1 year</option>
                       <option>1 &ndash; 2 years</option>
@@ -166,7 +195,7 @@ export default function ApplyPage() {
                 {/* How did you hear */}
                 <div>
                   <label className="block text-sm font-semibold text-[#374151] mb-1.5">How did you hear about us?</label>
-                  <select className="w-full rounded-2xl bg-[#F3F4F6] border-0 px-5 py-3 text-[15px] text-[#374151] placeholder-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#10B981]/20 focus:bg-white transition-all duration-200">
+                  <select className="w-full rounded-2xl bg-[#F3F4F6] border-0 px-5 py-3 text-[15px] text-[#374151] focus:outline-none focus:ring-2 focus:ring-[#10B981]/20 focus:bg-white transition-all duration-200">
                     <option>WhatsApp</option>
                     <option>Google Search</option>
                     <option>Friend / Referral</option>
@@ -176,7 +205,7 @@ export default function ApplyPage() {
                 </div>
 
                 {/* Submit */}
-                <button className="w-full py-3.5 rounded-full bg-[#10B981] text-white font-semibold text-[15px] hover:bg-[#059669] hover:shadow-[0_0_0_4px_rgba(16,185,129,0.20)] transition-all duration-200">
+                <button className="w-full py-3.5 rounded-full bg-[#10B981] text-white font-bold text-[15px] hover:bg-[#059669] hover:shadow-[0_0_0_4px_rgba(16,185,129,0.20)] transition-all duration-200">
                   Submit Application &rarr;
                 </button>
                 <p className="text-center text-xs text-[#6B7280] mt-3">
@@ -197,9 +226,9 @@ export default function ApplyPage() {
           {/* Sidebar */}
           <div className="space-y-4">
 
-            {/* Anita card — dark */}
+            {/* Anita dark card */}
             <div className="bg-[#064E3B] rounded-3xl p-6">
-              <div className="w-14 h-14 rounded-2xl bg-[#10B981] flex items-center justify-center text-white font-display font-extrabold text-xl shadow-[0_0_0_3px_rgba(16,185,129,0.30)]">
+              <div className="w-14 h-14 rounded-2xl bg-[#10B981] flex items-center justify-center text-white font-display font-black text-xl shadow-[0_0_0_3px_rgba(16,185,129,0.30)]">
                 AS
               </div>
               <p className="font-display font-bold text-white mt-4">Anita Srivastava</p>
@@ -217,9 +246,10 @@ export default function ApplyPage() {
               </a>
             </div>
 
-            {/* Why us */}
+            {/* Why apply */}
             <div className="bg-white rounded-2xl p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
-              <p className="font-display font-semibold text-[#111827] text-sm mb-4">Why Apply Through Us?</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#10B981] mb-1">Benefits</p>
+              <p className="font-display font-bold text-[#111827] text-[15px] mb-4">Why Apply Through Us?</p>
               <ul className="space-y-2.5">
                 {[
                   '✅ 100% free — never charge candidates',
@@ -251,6 +281,7 @@ export default function ApplyPage() {
                 <span>Closed</span>
               </div>
             </div>
+
           </div>
 
         </div>

@@ -2,387 +2,537 @@ import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
-/* ─── Section label helper ─────────────────────────────── */
-function SectionLabel({ children, light }: { children: React.ReactNode; light?: boolean }) {
-  return (
-    <p className={`text-xs font-bold uppercase tracking-widest mb-2 ${light ? 'text-[#10B981]' : 'text-[#10B981]'}`}>
-      {children}
-    </p>
-  );
-}
+/* ─── Marquee items ─────────────────────────────────────── */
+const marqueeItems = [
+  'Data Entry', 'Receptionist', 'Telecalling', 'Sales Executive',
+  'Back Office', 'Work From Home ✓', 'Fresher OK ✓', 'Lucknow',
+  'Kanpur', 'Noida', 'Accounts Assistant', 'Customer Support',
+  'Always Free ✓', 'Office Assistant',
+];
 
 export default function HomePage() {
   return (
     <>
       <Navbar />
 
-      {/* ── 2. HERO ──────────────────────────────────────── */}
-      <section className="bg-[#0A0F1E] py-28">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          {/* Badge */}
-          <span className="inline-block bg-white/10 text-white/70 rounded-full px-4 py-1.5 text-xs font-semibold mb-7">
-            🌿 Lucknow&apos;s #1 Placement Service
-          </span>
+      {/* ══════════════════════════════════════════════════════
+          SECTION 1 — HERO
+      ══════════════════════════════════════════════════════ */}
+      <section className="bg-[#0A0F1E] relative overflow-hidden min-h-[92vh] flex items-center">
 
-          {/* Headline */}
-          <h1 className="font-display font-extrabold text-5xl md:text-[68px] leading-[1.05] tracking-tight text-white">
-            Find Work in<br />
-            <span className="text-[#10B981]">Lucknow &amp; UP</span>
-          </h1>
+        {/* Grid texture */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(16,185,129,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.04)_1px,transparent_1px)] bg-[size:48px_48px]" />
 
-          {/* Subtitle */}
-          <p className="mt-5 text-lg text-white/60 max-w-xl mx-auto leading-relaxed">
-            500+ candidates placed. Personal service. Free for job seekers. Get placed in 48 hours.
-          </p>
+        {/* Radial glow — left center */}
+        <div className="absolute inset-y-0 left-0 w-[700px] bg-[radial-gradient(ellipse,rgba(16,185,129,0.10)_0%,transparent_65%)]" />
 
-          {/* CTA row */}
-          <div className="mt-8 flex flex-wrap gap-3 justify-center">
-            <Link
-              href="/jobs"
-              className="rounded-full bg-[#10B981] text-white font-semibold px-7 py-3.5 hover:bg-[#059669] hover:shadow-[0_0_0_4px_rgba(16,185,129,0.20)] transition-all duration-200"
-            >
-              Browse Jobs →
-            </Link>
-            <Link
-              href="/apply"
-              className="border-2 border-white/20 text-white rounded-full px-7 py-3.5 font-semibold hover:bg-white/10 transition-all duration-200"
-            >
-              Apply Now
-            </Link>
-            <a
-              href="https://wa.me/918579898230"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full bg-[#25D366] text-white font-semibold px-7 py-3.5 hover:bg-[#1ebe5d] transition-all duration-200"
-            >
-              💬 WhatsApp Anita
-            </a>
-          </div>
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 w-full py-28">
+          <div className="grid lg:grid-cols-[1fr_420px] gap-16 items-center">
 
-          {/* Social proof */}
-          <div className="mt-10 flex items-center justify-center gap-3">
-            <div className="flex -space-x-2">
-              <div className="w-9 h-9 rounded-full border-2 border-[#0A0F1E] bg-violet-500 flex items-center justify-center font-bold text-xs text-white">P</div>
-              <div className="w-9 h-9 rounded-full border-2 border-[#0A0F1E] bg-amber-500 flex items-center justify-center font-bold text-xs text-white">R</div>
-              <div className="w-9 h-9 rounded-full border-2 border-[#0A0F1E] bg-rose-500 flex items-center justify-center font-bold text-xs text-white">A</div>
-              <div className="w-9 h-9 rounded-full border-2 border-[#0A0F1E] bg-sky-500 flex items-center justify-center font-bold text-xs text-white">S</div>
-              <div className="w-9 h-9 rounded-full border-2 border-[#0A0F1E] bg-emerald-500 flex items-center justify-center font-bold text-xs text-white">M</div>
-            </div>
-            <p className="text-sm text-white/60">
-              Joined by <strong className="text-white">500+</strong> job seekers this year
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 3. STATS BAR ─────────────────────────────────── */}
-      <section className="bg-[#10B981] py-10">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="hidden md:grid md:grid-cols-4 gap-6 text-center text-white">
-            {[
-              { val: '500+', label: 'Placements Done' },
-              { val: '7+',   label: 'Years Active'    },
-              { val: '200+', label: 'Employers'       },
-              { val: '48h',  label: 'Response Time'   },
-            ].map(({ val, label }, i) => (
-              <div key={label} className="flex items-center gap-0">
-                {i > 0 && <div className="hidden md:block w-px bg-white/20 self-stretch mr-6" />}
-                <div className="flex-1">
-                  <div className="font-display font-extrabold text-4xl leading-none">{val}</div>
-                  <div className="text-sm text-white/80 mt-1">{label}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-          {/* Mobile grid */}
-          <div className="grid grid-cols-2 gap-6 text-center text-white md:hidden">
-            {[
-              { val: '500+', label: 'Placements Done' },
-              { val: '7+',   label: 'Years Active'    },
-              { val: '200+', label: 'Employers'       },
-              { val: '48h',  label: 'Response Time'   },
-            ].map(({ val, label }) => (
-              <div key={label}>
-                <div className="font-display font-extrabold text-4xl leading-none">{val}</div>
-                <div className="text-sm text-white/80 mt-1">{label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 4. CATEGORIES ────────────────────────────────── */}
-      <section className="bg-[#F9FAFB] py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <SectionLabel>What are you looking for?</SectionLabel>
-          <h2 className="font-display font-bold text-3xl text-[#111827] mt-2">Browse by Category</h2>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mt-10">
-            {[
-              { emoji: '🏠', count: '42', label: 'Work From Home', desc: 'Apply from anywhere'    },
-              { emoji: '🌱', count: '38', label: 'Fresher Jobs',   desc: 'No experience needed'   },
-              { emoji: '⏰', count: '21', label: 'Part-Time',      desc: 'Flexible hours'         },
-              { emoji: '💼', count: '87', label: 'Full-Time',      desc: 'Office-based roles'     },
-            ].map(({ emoji, count, label, desc }) => (
-              <Link
-                key={label}
-                href="/jobs"
-                className="bg-white rounded-2xl p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04)] cursor-pointer
-                  hover:bg-[#10B981] hover:shadow-[0_20px_40px_rgba(16,185,129,0.20)] hover:-translate-y-1
-                  group transition-all duration-200"
-              >
-                <span className="cat-emoji text-4xl block mb-4 transition-transform duration-200 group-hover:scale-110">{emoji}</span>
-                <div className="font-display font-extrabold text-2xl text-[#10B981] group-hover:text-white">{count}</div>
-                <div className="font-semibold text-[#111827] group-hover:text-white mt-0.5">{label}</div>
-                <div className="text-xs text-[#6B7280] group-hover:text-white/80 mt-1">{desc}</div>
-                <div className="mt-4 text-[#10B981] group-hover:text-white font-bold text-lg">→</div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 5. FEATURED JOBS ─────────────────────────────── */}
-      <section className="bg-white py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          {/* Header row */}
-          <div className="flex justify-between items-end">
+            {/* ── LEFT ── */}
             <div>
-              <SectionLabel>Fresh & verified</SectionLabel>
-              <h2 className="font-display font-bold text-3xl text-[#111827] mt-2">Latest Openings</h2>
-            </div>
-            <Link href="/jobs" className="text-sm font-semibold text-[#10B981] hover:underline hidden sm:inline shrink-0">
-              View all 12 →
-            </Link>
-          </div>
+              {/* Pill badge */}
+              <div className="inline-flex items-center gap-2 bg-white/[0.07] border border-white/[0.10] rounded-full px-4 py-1.5 mb-9">
+                <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse shrink-0" />
+                <span className="text-xs font-semibold text-white/70 tracking-wide">Lucknow&apos;s #1 Placement Service</span>
+              </div>
 
-          {/* 3-col grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
-            {[
-              { title: 'Data Entry Operator',   type: 'Work From Home',  typeBg: 'bg-[#ECFDF5]', typeFg: 'text-[#059669]', avatarBg: 'bg-emerald-500', initial: 'D', tags: ['Fresher OK'],       salary: '₹8,000 – ₹12,000',  location: 'Lucknow, UP',         posted: '1 day ago'  },
-              { title: 'Receptionist',          type: 'Full-Time',       typeBg: 'bg-blue-50',    typeFg: 'text-blue-700',  avatarBg: 'bg-blue-500',    initial: 'R', tags: ['Female Preferred'], salary: '₹10,000 – ₹15,000', location: 'Gomti Nagar',         posted: '2 days ago' },
-              { title: 'Sales Executive',       type: 'Full-Time',       typeBg: 'bg-blue-50',    typeFg: 'text-blue-700',  avatarBg: 'bg-indigo-500',  initial: 'S', tags: ['Incentives'],       salary: '₹12,000 – ₹18,000', location: 'Kanpur',              posted: '3 days ago' },
-              { title: 'Telecaller',            type: 'Part-Time / WFH', typeBg: 'bg-amber-50',   typeFg: 'text-amber-700', avatarBg: 'bg-amber-500',   initial: 'T', tags: ['Fresher OK'],       salary: '₹6,000 – ₹10,000',  location: 'Lucknow, UP',         posted: '3 days ago' },
-              { title: 'Accounts Assistant',    type: 'Full-Time',       typeBg: 'bg-blue-50',    typeFg: 'text-blue-700',  avatarBg: 'bg-violet-500',  initial: 'A', tags: ['Graduate'],         salary: '₹15,000 – ₹22,000', location: 'Hazratganj',          posted: '4 days ago' },
-              { title: 'Back Office Executive', type: 'Full-Time',       typeBg: 'bg-blue-50',    typeFg: 'text-blue-700',  avatarBg: 'bg-rose-500',    initial: 'B', tags: [],                   salary: '₹9,000 – ₹14,000',  location: 'Noida',               posted: '5 days ago' },
-            ].map((job) => (
-              <div
-                key={job.title + job.location}
-                className="bg-white rounded-2xl p-5 flex flex-col shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(16,185,129,0.10)] hover:-translate-y-1 transition-all duration-200"
+              {/* Giant headline */}
+              <h1
+                className="font-display font-black leading-[0.90] tracking-[-0.04em] text-white"
+                style={{ fontSize: 'clamp(52px,7vw,88px)' }}
               >
-                {/* Top row */}
-                <div className="flex justify-between items-start">
-                  <div>
-                    <div className={`w-10 h-10 rounded-xl ${job.avatarBg} flex items-center justify-center text-white font-bold text-sm`}>
-                      {job.initial}
-                    </div>
-                    <p className="text-xs text-[#9CA3AF] mt-1">Confidential</p>
-                  </div>
-                  <span className={`rounded-full text-xs font-semibold px-3 py-1 ${job.typeBg} ${job.typeFg}`}>
-                    {job.type}
-                  </span>
-                </div>
+                Your Next<br />
+                Job Is One<br />
+                <span className="text-[#10B981]">WhatsApp</span><br />
+                Away
+              </h1>
 
-                {/* Title */}
-                <h3 className="font-display font-bold text-[#111827] text-base mt-3 leading-snug">{job.title}</h3>
-
-                {/* Tags */}
-                {job.tags.length > 0 && (
-                  <div className="flex gap-1.5 flex-wrap mt-2">
-                    {job.tags.map((tag) => (
-                      <span key={tag} className="text-[11px] font-semibold px-2.5 py-1 bg-amber-50 text-amber-700 rounded-full">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
-
-                {/* Salary */}
-                <div className="mt-auto pt-3">
-                  <span className="font-display font-bold text-[#111827] text-lg">{job.salary}</span>
-                  <span className="text-xs text-[#9CA3AF]">/mo</span>
-                </div>
-
-                {/* Bottom info */}
-                <div className="flex justify-between text-xs text-[#9CA3AF] mt-2">
-                  <span>📍 {job.location}</span>
-                  <span>🕐 {job.posted}</span>
-                </div>
-
-                {/* WhatsApp button */}
-                <a
-                  href={`https://wa.me/918579898230?text=${encodeURIComponent(`Hi Anita, I want to apply for ${job.title} in ${job.location}`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 w-full py-2.5 rounded-xl bg-[#25D366] text-white text-sm font-semibold hover:bg-[#1ebe5d] transition-colors text-center block"
-                >
-                  💬 Apply on WhatsApp
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 6. HOW IT WORKS ──────────────────────────────── */}
-      <section className="bg-[#0A0F1E] py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center">
-            <SectionLabel>Simple process</SectionLabel>
-            <h2 className="font-display font-bold text-3xl text-white mt-2">3 Steps to Your Next Job</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-            {[
-              {
-                num: '01', icon: '📝',
-                title: 'Apply in 30 Seconds',
-                desc:  'Fill our simple form or just WhatsApp Anita your name and the kind of job you want.',
-              },
-              {
-                num: '02', icon: '👩‍💼',
-                title: 'Anita Reviews You',
-                desc:  'She personally calls you within 48 hours, understands your needs, and finds matching roles.',
-              },
-              {
-                num: '03', icon: '🎉',
-                title: 'Get Placed',
-                desc:  'Get connected to employers directly. No spam, no waiting — just the right job for you.',
-              },
-            ].map(({ num, icon, title, desc }) => (
-              <div key={num} className="bg-white/5 rounded-2xl p-7 relative overflow-hidden">
-                {/* Big faded number */}
-                <div className="absolute -top-2 -right-3 font-display font-extrabold text-[100px] text-white opacity-[0.04] leading-none select-none pointer-events-none">
-                  {num}
-                </div>
-                <p className="text-[11px] font-bold uppercase tracking-widest text-[#10B981] mb-3">Step {num}</p>
-                <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-2xl mb-4">
-                  {icon}
-                </div>
-                <h3 className="font-display font-bold text-white text-lg">{title}</h3>
-                <p className="text-sm text-white/60 leading-relaxed mt-2">{desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 7. TESTIMONIALS ──────────────────────────────── */}
-      <section className="bg-[#F9FAFB] py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center">
-            <SectionLabel>Real stories</SectionLabel>
-            <h2 className="font-display font-bold text-3xl text-[#111827] mt-2">What Job Seekers Say</h2>
-          </div>
-
-          {/* Horizontal scroll */}
-          <div className="flex gap-5 overflow-x-auto scrollbar-hide pb-2 mt-10 -mx-4 px-4">
-            {[
-              { avatarBg: 'bg-rose-400',   initial: 'P', name: 'Priya Sharma',  role: 'Data Entry, Lucknow',       quote: 'I applied on WhatsApp and got a call the same evening. Anita aunty is so helpful — she found me a WFH job in 3 days!'                                       },
-              { avatarBg: 'bg-sky-500',    initial: 'R', name: 'Rahul Verma',   role: 'Sales Exec, Kanpur',        quote: 'I was jobless for 4 months. Vridhi Jobs placed me in a week. Salary is better than I expected.'                                                            },
-              { avatarBg: 'bg-violet-500', initial: 'S', name: 'Sunita Gupta',  role: 'Receptionist, Lucknow',    quote: 'Completely free service, very personal. Anita called me 3 times to make sure I was comfortable with the employer.'                                           },
-              { avatarBg: 'bg-amber-500',  initial: 'A', name: 'Amit Kumar',    role: 'Accounts, Hazratganj',      quote: 'Better than Naukri for Lucknow jobs. You get a real person who knows local employers.'                                                                      },
-              { avatarBg: 'bg-emerald-500',initial: 'N', name: 'Neha Singh',    role: 'Telecaller WFH',            quote: 'I\'m a fresher and was nervous, but Anita guided me through the entire interview process. Got placed!'                                                      },
-            ].map(({ avatarBg, initial, name, role, quote }) => (
-              <div
-                key={name}
-                className="w-[300px] md:w-[340px] shrink-0 bg-white rounded-2xl p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
-              >
-                <div className="text-[#F59E0B] text-sm mb-3">★★★★★</div>
-                <p className="text-[#374151] text-sm leading-relaxed italic mb-5">&ldquo;{quote}&rdquo;</p>
-                <div className="flex gap-3 items-center">
-                  <div className={`w-10 h-10 rounded-full ${avatarBg} flex items-center justify-center text-white font-bold text-sm shrink-0`}>
-                    {initial}
-                  </div>
-                  <div>
-                    <div className="font-semibold text-[#111827] text-sm">{name}</div>
-                    <div className="text-xs text-[#6B7280]">{role}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 8. ANITA CTA ─────────────────────────────────── */}
-      <section className="bg-white py-20">
-        <div className="max-w-5xl mx-auto px-4">
-          <div className="rounded-3xl overflow-hidden shadow-[0_32px_64px_rgba(0,0,0,0.07)] grid lg:grid-cols-5">
-
-            {/* Left panel */}
-            <div className="lg:col-span-2 bg-[#064E3B] p-10">
-              {/* Avatar */}
-              <div className="w-16 h-16 rounded-2xl bg-[#10B981] flex items-center justify-center text-white font-display font-extrabold text-2xl shadow-[0_0_0_4px_rgba(16,185,129,0.25)]">
-                AS
-              </div>
-
-              <p className="font-display font-bold text-xl text-white mt-5">Anita Srivastava</p>
-              <p className="text-sm text-white/60 mt-1">Founder &amp; Placement Consultant</p>
-
-              <blockquote className="mt-5 text-sm text-white/80 leading-relaxed italic border-l-4 border-[#10B981] pl-4">
-                &ldquo;I treat every candidate like family. My job is done only when you&rsquo;ve joined and settled in.&rdquo;
-              </blockquote>
-
-              <div className="mt-6 space-y-2.5">
-                <a href="tel:+918579898230" className="flex gap-2 items-center text-sm text-white/70 hover:text-white transition-colors">
-                  <span>📞</span> +91 85798 98230
-                </a>
-                <a href="mailto:anita@vridhijobs.in" className="flex gap-2 items-center text-sm text-white/70 hover:text-white transition-colors">
-                  <span>✉️</span> anita@vridhijobs.in
-                </a>
-              </div>
-            </div>
-
-            {/* Right panel */}
-            <div className="lg:col-span-3 bg-white p-10">
-              <h3 className="font-display font-bold text-2xl text-[#111827] mb-2">Don&rsquo;t see the right job?</h3>
-              <p className="text-[#6B7280] text-sm mb-8">
-                Reach out directly — Anita will match you personally, no forms needed.
+              {/* Subtitle */}
+              <p className="mt-7 text-white/40 text-base md:text-lg leading-relaxed max-w-md">
+                500+ candidates placed across Lucknow &amp; UP. Personal service by Anita Srivastava. Completely free for job seekers.
               </p>
 
-              <div className="space-y-2">
+              {/* CTAs */}
+              <div className="mt-9 flex flex-wrap gap-3">
                 <a
-                  href="https://wa.me/918579898230"
+                  href="https://wa.me/918579898230?text=Hi%20Anita%2C%20I%20am%20looking%20for%20a%20job"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 rounded-2xl hover:bg-[#F9FAFB] transition-colors"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#25D366] text-white font-bold px-7 py-3.5 text-sm transition-all duration-200 hover:brightness-110"
+                  style={{ boxShadow: '0 4px 24px rgba(37,211,102,0.40)' }}
                 >
-                  <div className="bg-[#ECFDF5] w-12 h-12 rounded-xl flex items-center justify-center text-xl shrink-0">💬</div>
-                  <div className="flex-1">
-                    <div className="font-semibold text-[#111827] text-sm">WhatsApp Anita</div>
-                    <div className="text-sm text-[#6B7280]">Fastest — reply in minutes</div>
-                  </div>
-                  <span className="text-[#10B981] font-bold">→</span>
+                  💬 WhatsApp Anita
                 </a>
-
-                <a
-                  href="tel:+918579898230"
-                  className="flex items-center gap-4 p-4 rounded-2xl hover:bg-[#F9FAFB] transition-colors"
-                >
-                  <div className="bg-blue-50 w-12 h-12 rounded-xl flex items-center justify-center text-xl shrink-0">📞</div>
-                  <div className="flex-1">
-                    <div className="font-semibold text-[#111827] text-sm">Call Directly</div>
-                    <div className="text-sm text-[#6B7280]">Mon–Sat, 10 AM – 6 PM</div>
-                  </div>
-                  <span className="text-[#10B981] font-bold">→</span>
-                </a>
-
                 <Link
-                  href="/apply"
-                  className="flex items-center gap-4 p-4 rounded-2xl hover:bg-[#F9FAFB] transition-colors"
+                  href="/jobs"
+                  className="inline-flex items-center gap-2 rounded-full bg-white/[0.08] border border-white/[0.08] text-white font-bold px-7 py-3.5 text-sm hover:bg-white/[0.14] transition-all duration-200"
                 >
-                  <div className="bg-amber-50 w-12 h-12 rounded-xl flex items-center justify-center text-xl shrink-0">📝</div>
-                  <div className="flex-1">
-                    <div className="font-semibold text-[#111827] text-sm">Fill Application</div>
-                    <div className="text-sm text-[#6B7280]">Takes 2 minutes</div>
-                  </div>
-                  <span className="text-[#10B981] font-bold">→</span>
+                  Browse Jobs →
                 </Link>
               </div>
 
-              <p className="mt-6 text-xs text-[#9CA3AF]">📞 +91 85798 98230 · anita@vridhijobs.in</p>
+              {/* Social proof */}
+              <div className="mt-10 flex items-center gap-3">
+                <div className="flex -space-x-2">
+                  {[
+                    { bg: 'bg-violet-500', l: 'P' },
+                    { bg: 'bg-amber-500',  l: 'R' },
+                    { bg: 'bg-rose-500',   l: 'A' },
+                    { bg: 'bg-sky-500',    l: 'S' },
+                    { bg: 'bg-emerald-500',l: 'M' },
+                  ].map(({ bg, l }) => (
+                    <div
+                      key={l + bg}
+                      className={`w-9 h-9 rounded-full border-2 border-[#0A0F1E] ${bg} flex items-center justify-center font-bold text-xs text-white`}
+                    >
+                      {l}
+                    </div>
+                  ))}
+                </div>
+                <p className="text-sm text-white/50">
+                  <strong className="text-white">200+</strong> people placed this year
+                </p>
+              </div>
             </div>
+
+            {/* ── RIGHT — Floating job cards ── */}
+            <div className="hidden lg:block relative h-[480px]">
+
+              {/* Radial glow behind cards */}
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(16,185,129,0.12)_0%,transparent_70%)]" />
+
+              {/* Card 1 — Data Entry */}
+              <div
+                className="absolute top-0 left-4 w-[265px] bg-white/[0.07] backdrop-blur-md border border-white/10 rounded-2xl p-5"
+                style={{ transform: 'rotate(2deg)' }}
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-9 h-9 rounded-lg bg-emerald-500 flex items-center justify-center text-white font-bold text-sm shrink-0">D</div>
+                  <div>
+                    <p className="text-white font-bold text-sm leading-tight">Data Entry Operator</p>
+                    <p className="text-white/40 text-xs">📍 Lucknow</p>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-[#10B981] font-bold text-sm">₹12,000<span className="text-white/30 font-normal text-xs">/mo</span></span>
+                  <span className="text-[10px] font-semibold px-2 py-0.5 bg-white/10 text-white/60 rounded-full">WFH</span>
+                </div>
+              </div>
+
+              {/* Card 2 — Receptionist */}
+              <div
+                className="absolute top-[148px] left-0 w-[265px] bg-white/[0.07] backdrop-blur-md border border-white/10 rounded-2xl p-5"
+                style={{ transform: 'rotate(-1deg)' }}
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-9 h-9 rounded-lg bg-blue-500 flex items-center justify-center text-white font-bold text-sm shrink-0">R</div>
+                  <div>
+                    <p className="text-white font-bold text-sm leading-tight">Receptionist</p>
+                    <p className="text-white/40 text-xs">📍 Gomti Nagar</p>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-[#10B981] font-bold text-sm">₹15,000<span className="text-white/30 font-normal text-xs">/mo</span></span>
+                  <span className="text-[10px] font-semibold px-2 py-0.5 bg-white/10 text-white/60 rounded-full">Full-Time</span>
+                </div>
+              </div>
+
+              {/* Card 3 — Telecaller */}
+              <div
+                className="absolute top-[296px] left-6 w-[265px] bg-white/[0.07] backdrop-blur-md border border-white/10 rounded-2xl p-5"
+                style={{ transform: 'rotate(1deg)' }}
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-9 h-9 rounded-lg bg-amber-500 flex items-center justify-center text-white font-bold text-sm shrink-0">T</div>
+                  <div>
+                    <p className="text-white font-bold text-sm leading-tight">Telecaller</p>
+                    <p className="text-white/40 text-xs">📍 Kanpur</p>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-[#10B981] font-bold text-sm">₹10,000<span className="text-white/30 font-normal text-xs">/mo</span></span>
+                  <span className="text-[10px] font-semibold px-2 py-0.5 bg-white/10 text-white/60 rounded-full">Part-Time</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════
+          SECTION 2 — MARQUEE
+      ══════════════════════════════════════════════════════ */}
+      <section className="bg-[#10B981] py-3.5 overflow-hidden">
+        <div className="flex animate-marquee whitespace-nowrap">
+          {[...marqueeItems, ...marqueeItems].map((item, i) => (
+            <span
+              key={`${item}-${i}`}
+              className="inline-flex items-center gap-3 mx-6 text-sm font-semibold text-white/80"
+            >
+              <span className="w-1 h-1 rounded-full bg-white/50 shrink-0" />
+              {item}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════
+          SECTION 3 — STATS  (pure typography, no boxes)
+      ══════════════════════════════════════════════════════ */}
+      <section className="bg-white py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-[#F3F4F6]">
+            {[
+              { val: '500+', label: 'Placements Done',   sub: 'Across Lucknow & UP'            },
+              { val: '7+',   label: 'Years Active',      sub: 'Est. 2018, still going'          },
+              { val: '200+', label: 'Employers Trust Us',sub: 'And growing every month'         },
+              { val: '48h',  label: 'Response Time',     sub: 'Avg. callback from Anita'        },
+            ].map(({ val, label, sub }) => (
+              <div key={label} className="px-6 md:px-10 first:pl-0 last:pr-0 py-4">
+                <div
+                  className="font-display font-black leading-none text-[#111827]"
+                  style={{ fontSize: 'clamp(44px,6vw,80px)' }}
+                >
+                  {val}
+                </div>
+                <p className="text-sm font-semibold text-[#374151] mt-2">{label}</p>
+                <p className="text-xs text-[#9CA3AF] mt-0.5">{sub}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════
+          SECTION 4 — BENTO CATEGORIES
+      ══════════════════════════════════════════════════════ */}
+      <section className="bg-[#F9FAFB] py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#10B981] mb-3">
+            What are you looking for?
+          </p>
+          <h2
+            className="font-display font-black tracking-[-0.03em] text-[#111827] mb-10"
+            style={{ fontSize: 'clamp(32px,4vw,48px)' }}
+          >
+            Browse by Category
+          </h2>
+
+          <div
+            className="grid grid-cols-2 md:grid-cols-6 gap-3"
+            style={{ gridAutoRows: '180px' }}
+          >
+            {/* WFH — wide */}
+            <Link
+              href="/jobs"
+              className="col-span-2 md:col-span-4 bg-[#064E3B] rounded-3xl p-7 flex flex-col justify-between hover:scale-[1.015] transition-transform duration-200 cursor-pointer"
+            >
+              <span className="text-3xl">💻</span>
+              <div>
+                <h3 className="font-display font-black text-2xl text-white leading-tight">
+                  Work From Home
+                </h3>
+                <div className="flex items-center justify-between mt-1">
+                  <p className="text-white/40 text-sm">Apply from anywhere in UP</p>
+                  <span className="text-[#10B981] font-bold text-sm">40+ roles →</span>
+                </div>
+              </div>
+            </Link>
+
+            {/* Fresher — tall */}
+            <Link
+              href="/jobs"
+              className="col-span-1 md:col-span-2 row-span-2 bg-[#10B981] rounded-3xl p-7 flex flex-col justify-between hover:scale-[1.015] transition-transform duration-200 cursor-pointer"
+            >
+              <span className="text-3xl">🌱</span>
+              <div>
+                <h3 className="font-display font-black text-2xl text-white leading-tight mb-2">
+                  Fresher Friendly
+                </h3>
+                <p className="text-white/70 text-sm leading-snug mb-4">
+                  No experience? No problem. We&apos;ll get you started.
+                </p>
+                <p className="text-xl font-black text-white">25+ open</p>
+              </div>
+            </Link>
+
+            {/* Office — dark */}
+            <Link
+              href="/jobs"
+              className="col-span-1 md:col-span-2 bg-[#0A0F1E] rounded-3xl p-6 flex flex-col justify-between hover:scale-[1.015] transition-transform duration-200 cursor-pointer"
+            >
+              <span className="text-2xl">🏢</span>
+              <div>
+                <p className="font-bold text-lg text-white leading-tight">Office Roles</p>
+                <p className="text-white/30 text-xs mt-1">Lucknow · Kanpur · Noida</p>
+              </div>
+            </Link>
+
+            {/* Part-Time — white */}
+            <Link
+              href="/jobs"
+              className="col-span-1 md:col-span-2 bg-white rounded-3xl p-6 flex flex-col justify-between transition-all duration-200 cursor-pointer hover:-translate-y-1 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(16,185,129,0.12)]"
+            >
+              <span className="text-2xl">⏰</span>
+              <div>
+                <p className="font-bold text-lg text-[#111827] leading-tight">Part-Time</p>
+                <p className="text-[#9CA3AF] text-xs mt-1">12+ flexible roles</p>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════
+          SECTION 5 — JOB LISTINGS (list view)
+      ══════════════════════════════════════════════════════ */}
+      <section className="bg-white py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+
+          {/* Header */}
+          <div className="flex justify-between items-end mb-8">
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#10B981] mb-2">
+                Fresh &amp; verified
+              </p>
+              <h2
+                className="font-display font-black tracking-[-0.03em] text-[#111827]"
+                style={{ fontSize: 'clamp(28px,3.5vw,40px)' }}
+              >
+                Latest Openings
+              </h2>
+            </div>
+            <Link
+              href="/jobs"
+              className="text-sm font-semibold text-[#10B981] hover:underline hidden sm:inline shrink-0"
+            >
+              View all →
+            </Link>
+          </div>
+
+          {/* Job rows */}
+          <div className="divide-y divide-[#F9FAFB]">
+            {[
+              { title: 'Data Entry Operator', type: 'WFH',       color: 'bg-emerald-500', location: 'Lucknow, UP',        salary: '₹8k–12k',  tag: 'Fresher OK'       },
+              { title: 'Receptionist',         type: 'Full-Time', color: 'bg-blue-500',    location: 'Gomti Nagar',        salary: '₹10k–15k', tag: 'Female Pref'      },
+              { title: 'Sales Executive',      type: 'Full-Time', color: 'bg-indigo-500',  location: 'Kanpur',             salary: '₹12k–18k', tag: 'Incentives'       },
+              { title: 'Telecaller',           type: 'Part-Time', color: 'bg-amber-500',   location: 'Lucknow, UP',        salary: '₹6k–10k',  tag: 'Fresher OK'       },
+              { title: 'Customer Support',     type: 'WFH',       color: 'bg-teal-500',    location: 'Remote / UP',        salary: '₹10k–14k', tag: 'Laptop Req'       },
+              { title: 'Accounts Assistant',   type: 'Full-Time', color: 'bg-violet-500',  location: 'Hazratganj',         salary: '₹15k–22k', tag: 'Graduate'         },
+            ].map((job) => {
+              const typeClass =
+                job.type === 'WFH'
+                  ? 'bg-[#ECFDF5] text-[#059669]'
+                  : job.type === 'Part-Time'
+                  ? 'bg-amber-50 text-amber-700'
+                  : 'bg-blue-50 text-blue-700';
+
+              return (
+                <div
+                  key={job.title + job.location}
+                  className="flex items-center gap-4 py-4 md:py-5 -mx-3 px-3 rounded-2xl group hover:bg-[#F9FAFB] transition-colors"
+                >
+                  {/* Avatar */}
+                  <div
+                    className={`w-10 h-10 md:w-11 md:h-11 rounded-xl ${job.color} flex items-center justify-center text-white font-bold text-sm shrink-0`}
+                  >
+                    {job.title[0]}
+                  </div>
+
+                  {/* Title + location */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="font-display font-bold text-[#111827] text-sm md:text-base truncate">
+                        {job.title}
+                      </span>
+                      {job.tag && (
+                        <span className="hidden sm:inline text-[11px] font-semibold px-2 py-0.5 bg-amber-50 text-amber-600 rounded-full shrink-0">
+                          {job.tag}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-xs text-[#9CA3AF] mt-0.5">📍 {job.location}</p>
+                  </div>
+
+                  {/* Type pill */}
+                  <div className="hidden md:block shrink-0">
+                    <span className={`text-xs font-semibold px-3 py-1 rounded-full ${typeClass}`}>
+                      {job.type}
+                    </span>
+                  </div>
+
+                  {/* Salary */}
+                  <div className="text-right shrink-0">
+                    <span className="font-display font-bold text-[#111827] text-sm md:text-base">
+                      {job.salary}
+                    </span>
+                    <span className="text-xs text-[#9CA3AF]">/mo</span>
+                  </div>
+
+                  {/* Apply */}
+                  <a
+                    href={`https://wa.me/918579898230?text=${encodeURIComponent(`Hi Anita, I want to apply for ${job.title} in ${job.location}`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hidden sm:block shrink-0 px-4 py-2 rounded-full bg-[#F3F4F6] text-[#374151] text-sm font-semibold group-hover:bg-[#10B981] group-hover:text-white transition-colors"
+                  >
+                    Apply
+                  </a>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Mobile CTA */}
+          <div className="mt-8 text-center sm:hidden">
+            <Link
+              href="/jobs"
+              className="inline-flex items-center gap-2 rounded-full bg-[#10B981] text-white font-bold px-6 py-3 text-sm"
+            >
+              View all jobs →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════
+          SECTION 6 — HOW IT WORKS
+      ══════════════════════════════════════════════════════ */}
+      <section className="bg-[#0A0F1E] py-24 overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#10B981] mb-5">
+            Simple process
+          </p>
+          <h2
+            className="font-display font-black tracking-[-0.03em] text-white mb-16 leading-tight"
+            style={{ fontSize: 'clamp(32px,4vw,48px)' }}
+          >
+            How We Get<br />
+            <span className="text-[#10B981]">You Placed</span>
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+            {[
+              {
+                ghost: '01',
+                title: 'Browse or WhatsApp',
+                body:  'Find a role you like or just send your details to Anita on WhatsApp — takes 60 seconds.',
+              },
+              {
+                ghost: '02',
+                title: 'Anita Reviews You',
+                body:  'She personally shortlists you, preps you for the interview, and submits your profile to the employer.',
+              },
+              {
+                ghost: '03',
+                title: 'Get Placed',
+                body:  'Interview, offer letter, joining. Anita stays with you until you\'re settled in your new role.',
+              },
+            ].map(({ ghost, title, body }) => (
+              <div key={ghost} className="relative">
+
+                {/* Giant ghost number */}
+                <div
+                  className="absolute -top-8 -left-4 font-black text-white select-none pointer-events-none leading-none"
+                  style={{ fontSize: '160px', opacity: 0.04 }}
+                >
+                  {ghost}
+                </div>
+
+                {/* Content */}
+                <div className="relative">
+                  <div className="w-10 h-10 rounded-full bg-[#10B981]/10 border border-[#10B981]/25 text-[#10B981] font-bold text-sm flex items-center justify-center mb-5">
+                    {ghost}
+                  </div>
+                  <h3 className="font-display font-bold text-white text-xl mb-3">{title}</h3>
+                  <p className="text-white/35 text-sm leading-relaxed">{body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════
+          SECTION 7 — ANITA CTA
+      ══════════════════════════════════════════════════════ */}
+      <section className="bg-[#10B981] py-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="grid lg:grid-cols-[1fr_420px] gap-12 md:gap-16 items-center">
+
+            {/* ── LEFT ── */}
+            <div>
+              <p className="text-white/55 text-sm font-semibold mb-5">
+                Your personal placement consultant
+              </p>
+              <h2
+                className="font-display font-black tracking-[-0.04em] text-white leading-[1.0]"
+                style={{ fontSize: 'clamp(36px,5vw,64px)' }}
+              >
+                Anita Handles<br />
+                It From Start<br />
+                to Finish
+              </h2>
+              <p className="text-white/55 text-base leading-relaxed max-w-sm mt-6">
+                One call, one person, one goal — getting you a job you actually want to go to every morning.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href="https://wa.me/918579898230?text=Hi%20Anita%2C%20I%20need%20help%20finding%20a%20job"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-white text-[#064E3B] font-bold px-7 py-3.5 text-sm hover:shadow-[0_8px_24px_rgba(0,0,0,0.15)] transition-all duration-200"
+                >
+                  💬 WhatsApp Now
+                </a>
+                <Link
+                  href="/jobs"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/30 text-white font-bold px-7 py-3.5 text-sm hover:bg-white/10 transition-all duration-200"
+                >
+                  See Open Roles →
+                </Link>
+              </div>
+            </div>
+
+            {/* ── RIGHT card ── */}
+            <div className="bg-white/[0.12] backdrop-blur rounded-3xl p-8 border border-white/[0.15]">
+
+              {/* Avatar + name */}
+              <div className="flex items-center gap-4 mb-6">
+                <div
+                  className="w-14 h-14 rounded-2xl bg-[#064E3B] flex items-center justify-center font-display font-extrabold text-xl text-white shrink-0"
+                  style={{ boxShadow: '0 0 0 3px rgba(255,255,255,0.20)' }}
+                >
+                  AS
+                </div>
+                <div>
+                  <p className="text-lg font-bold text-white leading-tight">Anita Srivastava</p>
+                  <p className="text-white/50 text-sm">Founder &amp; Placement Consultant</p>
+                </div>
+              </div>
+
+              {/* Quote */}
+              <blockquote className="text-[17px] text-white/85 leading-relaxed italic mb-6">
+                &ldquo;I treat every candidate like family. My job is done only when you&rsquo;ve joined and settled in.&rdquo;
+              </blockquote>
+
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-0 border-t border-white/15 pt-6">
+                {[
+                  { val: '500+', label: 'Placed'    },
+                  { val: '7+',   label: 'Years'     },
+                  { val: '48h',  label: 'Response'  },
+                ].map(({ val, label }) => (
+                  <div key={label} className="text-center">
+                    <p className="font-black text-white text-xl leading-none">{val}</p>
+                    <p className="text-white/45 text-xs mt-1">{label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
           </div>
         </div>
       </section>

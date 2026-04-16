@@ -6,29 +6,58 @@ export default function HirePage() {
     <>
       <Navbar />
 
-      {/* Page header */}
-      <section className="bg-white py-14">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="inline-flex items-center gap-2 bg-[#ECFDF5] text-[#059669] rounded-full px-4 py-1.5 text-xs font-bold mb-4">
+      {/* Dark page header */}
+      <section
+        className="bg-[#0A0F1E] py-16 relative overflow-hidden"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(16,185,129,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(16,185,129,0.03) 1px,transparent 1px)',
+          backgroundSize: '40px 40px',
+        }}
+      >
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+          <div className="inline-flex items-center gap-2 bg-[#10B981]/10 border border-[#10B981]/20 text-[#10B981] rounded-full px-4 py-1.5 text-xs font-bold mb-5">
             500+ placements done &middot; Free for employers
           </div>
-          <h1 className="font-display font-extrabold text-4xl md:text-5xl tracking-tight text-[#111827]">
+          <h1
+            className="font-display font-black text-white tracking-[-0.04em] leading-[1.05]"
+            style={{ fontSize: 'clamp(40px,5vw,64px)' }}
+          >
             Hire the Right Candidate, Fast
           </h1>
-          <p className="text-[#6B7280] mt-3 max-w-lg leading-relaxed">
+          <p className="text-white/40 mt-4 max-w-lg leading-relaxed text-[15px]">
             Tell us what you need &mdash; we&rsquo;ll send you pre-screened candidates from Lucknow, Kanpur &amp; UP.
           </p>
+          <div className="inline-flex flex-wrap gap-2 mt-5">
+            {[
+              '🆓 Free for employers',
+              '⚡ 3–5 day turnaround',
+              '👩‍💼 Personal by Anita',
+            ].map((pill) => (
+              <span
+                key={pill}
+                className="bg-white/[0.08] border border-white/[0.10] rounded-full px-3 py-1 text-xs text-white/50 font-medium"
+              >
+                {pill}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Main content */}
-      <section className="bg-[#F9FAFB] py-20">
+      <section className="bg-[#F9FAFB] py-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-4 sm:px-6">
 
           {/* Form card */}
           <div className="lg:col-span-2">
             <div className="bg-white rounded-3xl p-8 md:p-10 shadow-[0_32px_64px_rgba(0,0,0,0.07)]">
-              <h2 className="font-display font-bold text-2xl text-[#111827] mb-8">Post a Job Opening</h2>
+              <h2
+                className="font-display font-black text-[#111827] mb-8"
+                style={{ fontSize: 'clamp(22px,3vw,28px)' }}
+              >
+                Post a Job Opening
+              </h2>
 
               <div className="space-y-5">
 
@@ -187,7 +216,7 @@ export default function HirePage() {
                 </div>
 
                 {/* Submit */}
-                <button className="w-full py-3.5 rounded-full bg-[#10B981] text-white font-semibold text-[15px] hover:bg-[#059669] hover:shadow-[0_0_0_4px_rgba(16,185,129,0.20)] transition-all duration-200">
+                <button className="w-full py-3.5 rounded-full bg-[#10B981] text-white font-bold text-[15px] hover:bg-[#059669] hover:shadow-[0_0_0_4px_rgba(16,185,129,0.20)] transition-all duration-200">
                   Submit Job Requirement &rarr;
                 </button>
                 <p className="text-center text-xs text-[#6B7280] mt-3">
@@ -205,7 +234,8 @@ export default function HirePage() {
 
             {/* Why hire */}
             <div className="bg-white rounded-2xl p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
-              <p className="font-display font-semibold text-[#111827] text-sm mb-4">Why Hire Through Us?</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#10B981] mb-1">For Employers</p>
+              <p className="font-display font-bold text-[#111827] text-[15px] mb-4">Why Hire Through Us?</p>
               <ul className="space-y-2.5">
                 {[
                   ['🆓', 'Free for employers'],
@@ -223,15 +253,15 @@ export default function HirePage() {
               </ul>
             </div>
 
-            {/* Anita card — dark */}
+            {/* Anita dark card */}
             <div className="bg-[#064E3B] rounded-3xl p-6">
-              <div className="w-14 h-14 rounded-2xl bg-[#10B981] flex items-center justify-center text-white font-display font-extrabold text-xl shadow-[0_0_0_3px_rgba(16,185,129,0.30)]">
+              <div className="w-14 h-14 rounded-2xl bg-[#10B981] flex items-center justify-center text-white font-display font-black text-xl shadow-[0_0_0_3px_rgba(16,185,129,0.30)]">
                 AS
               </div>
               <p className="font-display font-bold text-white mt-4">Anita Srivastava</p>
               <p className="text-xs text-white/60 mt-0.5">Founder &amp; Placement Consultant</p>
               <p className="text-sm text-white/80 leading-relaxed italic border-l-4 border-[#10B981] pl-3 mt-4">
-                &ldquo;I personally review every application and call within 48 hours.&rdquo;
+                &ldquo;Tell me what you need — I&rsquo;ll shortlist the right people within days.&rdquo;
               </p>
               <a
                 href="https://wa.me/918579898230"
@@ -245,7 +275,8 @@ export default function HirePage() {
 
             {/* How it works */}
             <div className="bg-white rounded-2xl p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
-              <p className="font-display font-semibold text-[#111827] text-sm mb-4">How It Works</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#10B981] mb-1">Process</p>
+              <p className="font-display font-bold text-[#111827] text-[15px] mb-4">How It Works</p>
               <div className="space-y-3">
                 {[
                   ['1', 'Submit this form'],
